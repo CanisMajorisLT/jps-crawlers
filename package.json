@@ -1,0 +1,30 @@
+{
+  "name": "jps",
+  "version": "0.0.1",
+  "description": "Web scrapper for job ad websites",
+  "main": "app.js",
+  "dependencies": {
+    "async": "^1.5.2",
+    "babel-polyfill": "^6.5.0",
+    "cheerio": "^0.20.0",
+    "co": "^4.6.0",
+    "lodash": "^4.5.0",
+    "request-promise": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.5.2",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.5.2",
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
+  },
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register --require babel-polyfill --recursive",
+    "test:watch": "npm run test -- --watch",
+    "build": "babel -w src/crawlers/ -d build -s"
+  },
+  "author": "Vytenis",
+  "license": "ISC"
+}
