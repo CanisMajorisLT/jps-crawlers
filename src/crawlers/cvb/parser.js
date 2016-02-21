@@ -16,7 +16,7 @@ function extractTotalPageCount_(html) {
     return pagesCount !== '' ? parseInt(pagesCount) : pagesCount
 }
 
-export let extractTotalPageCount = validateParse(extractTotalPageCount_, [notEmptyString]);
+export let extractTotalPageCount = validateParse(extractTotalPageCount_, [isNumber]);
 
 
 

@@ -10,8 +10,16 @@ exports.isNotEmptyArray = isNotEmptyArray;
 
 var _lodash = require('lodash');
 
-var _errors = require('errors');
+var _errors = require('./errors');
 
+/**
+ * Wraps a html parser function and validates its return value against
+ * supplied validators. On validation fail, throw custom parser error.
+ *
+ * @param {Function} fnc
+ * @param {Array} validators
+ * @returns {Function}
+ */
 function validateParse(fnc, validators) {
     //TODO test
     var parserName = fnc.name;

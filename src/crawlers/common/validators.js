@@ -1,7 +1,14 @@
 import { isArray } from 'lodash'
-import { makeParserError } from 'errors'
+import { makeParserError } from './errors'
 
-
+/**
+ * Wraps a html parser function and validates its return value against
+ * supplied validators. On validation fail, throw custom parser error.
+ *
+ * @param {Function} fnc
+ * @param {Array} validators
+ * @returns {Function}
+ */
 export function validateParse(fnc, validators) { //TODO test
     const parserName = fnc.name;
 

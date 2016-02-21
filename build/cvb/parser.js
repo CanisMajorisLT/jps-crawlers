@@ -28,7 +28,7 @@ function extractTotalPageCount_(html) {
     return pagesCount !== '' ? parseInt(pagesCount) : pagesCount;
 }
 
-var extractTotalPageCount = exports.extractTotalPageCount = (0, _validators.validateParse)(extractTotalPageCount_, [_validators.notEmptyString]);
+var extractTotalPageCount = exports.extractTotalPageCount = (0, _validators.validateParse)(extractTotalPageCount_, [_validators.isNumber]);
 
 function extractFrontInfoForOneAd(element) {
     var ad = _cheerio2.default.load(element);

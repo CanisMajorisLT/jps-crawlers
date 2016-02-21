@@ -138,8 +138,7 @@ var DEFAULT_TASK_RETRY_INTERVAL = 200;
 /**
  * Generates object used for doing parse task
  * @param pageNumber
- * @param delayBeforeRun
- * @returns {{pageNumber: *, expires: *, requeue: boolean, timesRequeued: number, retry: number, retryInterval: number, delay: number}}
+ * @returns {{pageNumber: *, expires: *, requeue: number, timesRequeued: number, retry: number, retryInterval: number, delay: number}}
  */
 function generateFrontInfoTask(pageNumber) {
     return {
@@ -167,6 +166,7 @@ function handleTaskSuccess(_ref) {
     var task = _ref.task;
 
     console.log('Successfully finished parsing front page nr ' + task.pageNumber);
+    // write to DB, pass down for metadata add
 }
 
 function handleTaskFailureWrapper() {
