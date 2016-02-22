@@ -18,7 +18,7 @@ export function validateParse(fnc, validators) { //TODO test
 
         validators.forEach((validator)=> {
             if (!validator(result)) {
-                throw makeParserError(element.html(), parserName, validator.name)
+                throw makeParserError(element.html ? element.html() : element, parserName, validator.name)
             }
         });
 

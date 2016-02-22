@@ -30,7 +30,7 @@ function validateParse(fnc, validators) {
 
         validators.forEach(function (validator) {
             if (!validator(result)) {
-                throw (0, _errors.makeParserError)(element.html(), parserName, validator.name);
+                throw (0, _errors.makeParserError)(element.html ? element.html() : element, parserName, validator.name);
             }
         });
 
