@@ -1,0 +1,4 @@
+instrumentation:
+  root: ./src
+  es-modules: true
+  include-all-sources: true

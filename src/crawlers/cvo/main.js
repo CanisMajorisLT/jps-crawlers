@@ -4,7 +4,7 @@ import { extractTotalPageCount, extractFrontInfo } from './parser'
 import { datePlusHours } from '../common/utils'
 import { queueWorkerFactory } from '../common/queueWorkerFactory'
 
-const FRONT_PAGE_URI = 'http://www.cvbankas.lt/?page=${page}';
+const FRONT_PAGE_URI = 'http://www.cvonline.lt/darbo-skelbimai/visi?page=${page}';
 const DEFAULT_WORKERS_NUMBER = 1;
 const DEFAULT_TASK_DELAY = 1000;
 const DEFAULT_TASK_REQUEUE = 5;
@@ -31,7 +31,7 @@ function generateFrontInfoTask(pageNumber) {
 
 function generateManyFrontInfoTasks(n) {
     const tasks = [];
-    for (var i = 1; i <= n; i++) {
+    for (var i = 0; i <= n; i++) {
         tasks.push(generateFrontInfoTask(i))
     }
 
@@ -39,12 +39,13 @@ function generateManyFrontInfoTasks(n) {
 }
 
 /**
- * Parses first page to fetch a number of total pages with ads
+ * Parses page further enough that it has no ads, but link to last page with ads
+ * and thus returns total number of pages with ads.
  * @returns {Number}
  */
 async function getNumberOfFrontPages() {
     try {
-        let html = await getPageBody(FRONT_PAGE_URI.replace('${page}', '1'));
+        let html = await getPageBody(FRONT_PAGE_URI.replace('${page}', '200'));
         return parseInt(extractTotalPageCount(html));
     } catch (error) {
         console.log('getNumberOfFrontPages threw error', error);
@@ -97,7 +98,7 @@ function handleTaskFailureWrapper() {
 
 
 
-async function parseCVB() {
+async function parseCVO() {
     let handleTaskFail = handleTaskFailureWrapper();
 
     const worker = queueWorkerFactory(parseFrontPage, handleTaskFail.handler, handleTaskSuccess);
@@ -113,6 +114,6 @@ async function parseCVB() {
     FrontInfoFetchingQueue.push(tasks)
 }
 
-parseCVB();
+parseCVO();
 
 

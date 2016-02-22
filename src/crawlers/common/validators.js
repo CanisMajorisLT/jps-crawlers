@@ -1,4 +1,4 @@
-import { isArray } from 'lodash'
+import { isArray, isFinite as isNumber_ } from 'lodash'
 import { makeParserError } from './errors'
 
 /**
@@ -28,14 +28,23 @@ export function validateParse(fnc, validators) { //TODO test
     return errorWrapperForParserFunctions
 }
 
-export function notEmptyString(v) {
+export function isNotEmptyString(v) {
     return v !== ''
 }
 
 export function isNumber(v) {
-    return typeof v === 'number'
+    return isNumber_(v)
 }
 
 export function isNotEmptyArray(v) {
     return isArray(v) && v.length > 0
 }
+
+export const ELEMENT_NOT_FOUND = '@@ELEMENT_NOT_FOUND';
+
+export function isNotElementNotFound(v) {
+    return v !== ELEMENT_NOT_FOUND
+}
+
+
+

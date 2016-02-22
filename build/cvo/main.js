@@ -1,7 +1,8 @@
 'use strict';
 
 /**
- * Parses first page to fetch a number of total pages with ads
+ * Parses page further enough that it has no ads, but link to last page with ads
+ * and thus returns total number of pages with ads.
  * @returns {Number}
  */
 
@@ -14,7 +15,7 @@ var getNumberOfFrontPages = function () {
                     case 0:
                         _context.prev = 0;
                         _context.next = 3;
-                        return (0, _scrape.getPageBody)(FRONT_PAGE_URI.replace('${page}', '1'));
+                        return (0, _scrape.getPageBody)(FRONT_PAGE_URI.replace('${page}', '200'));
 
                     case 3:
                         html = _context.sent;
@@ -76,7 +77,7 @@ var parseFrontPage = function () {
     };
 }();
 
-var parseCVB = function () {
+var parseCVO = function () {
     var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee3() {
         var handleTaskFail, worker, FrontInfoFetchingQueue, pages, tasks;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
@@ -111,7 +112,7 @@ var parseCVB = function () {
         }, _callee3, this);
     }));
 
-    return function parseCVB() {
+    return function parseCVO() {
         return ref.apply(this, arguments);
     };
 }();
@@ -132,7 +133,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
 
-var FRONT_PAGE_URI = 'http://www.cvbankas.lt/?page=${page}';
+var FRONT_PAGE_URI = 'http://www.cvonline.lt/darbo-skelbimai/visi?page=${page}';
 var DEFAULT_WORKERS_NUMBER = 1;
 var DEFAULT_TASK_DELAY = 1000;
 var DEFAULT_TASK_REQUEUE = 5;
@@ -158,7 +159,7 @@ function generateFrontInfoTask(pageNumber) {
 
 function generateManyFrontInfoTasks(n) {
     var tasks = [];
-    for (var i = 1; i <= n; i++) {
+    for (var i = 0; i <= n; i++) {
         tasks.push(generateFrontInfoTask(i));
     }
 
@@ -199,5 +200,5 @@ function handleTaskFailureWrapper() {
     };
 }
 
-parseCVB();
+parseCVO();
 //# sourceMappingURL=main.js.map

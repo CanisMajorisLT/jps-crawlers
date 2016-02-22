@@ -1,5 +1,5 @@
 import $ from 'cheerio'
-import { validateParse, notEmptyString, isNumber, isNotEmptyArray } from '../common/validators'
+import { validateParse, isNotEmptyString, isNumber, isNotEmptyArray } from '../common/validators'
 
 
 /**
@@ -49,11 +49,11 @@ function extractFrontInfoForOneAd(element) {
     }
 
     return {
-        uri: validateParse(getUri, [notEmptyString])(ad),
-        title: validateParse(getTitle, [notEmptyString])(ad),
-        city: validateParse(getCity, [notEmptyString])(ad),
-        company: validateParse(getCompanyName, [notEmptyString])(ad),
-        companySecondary: validateParse(getSecondaryCompanyName, [notEmptyString])(ad),
+        uri: validateParse(getUri, [isNotEmptyString])(ad),
+        title: validateParse(getTitle, [isNotEmptyString])(ad),
+        city: validateParse(getCity, [isNotEmptyString])(ad),
+        company: validateParse(getCompanyName, [isNotEmptyString])(ad),
+        companySecondary: validateParse(getSecondaryCompanyName, [isNotEmptyString])(ad),
         id: validateParse(getId, [isNumber])(ad)
     }
 }

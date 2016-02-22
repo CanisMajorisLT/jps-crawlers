@@ -4,7 +4,7 @@ var _babelPolyfill = require('babel-polyfill');
 
 var _babelPolyfill2 = _interopRequireDefault(_babelPolyfill);
 
-var _main = require('./cvb/main');
+var _main = require('./cvo/main');
 
 var _main2 = _interopRequireDefault(_main);
 

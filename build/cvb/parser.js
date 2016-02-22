@@ -59,11 +59,11 @@ function extractFrontInfoForOneAd(element) {
     }
 
     return {
-        uri: (0, _validators.validateParse)(getUri, [_validators.notEmptyString])(ad),
-        title: (0, _validators.validateParse)(getTitle, [_validators.notEmptyString])(ad),
-        city: (0, _validators.validateParse)(getCity, [_validators.notEmptyString])(ad),
-        company: (0, _validators.validateParse)(getCompanyName, [_validators.notEmptyString])(ad),
-        companySecondary: (0, _validators.validateParse)(getSecondaryCompanyName, [_validators.notEmptyString])(ad),
+        uri: (0, _validators.validateParse)(getUri, [_validators.isNotEmptyString])(ad),
+        title: (0, _validators.validateParse)(getTitle, [_validators.isNotEmptyString])(ad),
+        city: (0, _validators.validateParse)(getCity, [_validators.isNotEmptyString])(ad),
+        company: (0, _validators.validateParse)(getCompanyName, [_validators.isNotEmptyString])(ad),
+        companySecondary: (0, _validators.validateParse)(getSecondaryCompanyName, [_validators.isNotEmptyString])(ad),
         id: (0, _validators.validateParse)(getId, [_validators.isNumber])(ad)
     };
 }
