@@ -79,8 +79,10 @@ export function extractFrontInfoForOneAd(element, index, pageNumber) {
         views: validateParse(getViews, [isNumber])(ad),
         expiryDate: validateParse(getExpiryDate, [isNumber])(ad),
         id: validateParse(getId, [isNotEmptyString])(ad),
-        adIndex: index,
-        pageNumber
+        meta : {
+            adIndex: index,
+            pageNumber
+        }
     }
 }
 

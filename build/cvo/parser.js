@@ -87,8 +87,10 @@ function extractFrontInfoForOneAd(element, index, pageNumber) {
         views: (0, _validators.validateParse)(getViews, [_validators.isNumber])(ad),
         expiryDate: (0, _validators.validateParse)(getExpiryDate, [_validators.isNumber])(ad),
         id: (0, _validators.validateParse)(getId, [_validators.isNotEmptyString])(ad),
-        adIndex: index,
-        pageNumber: pageNumber
+        meta: {
+            adIndex: index,
+            pageNumber: pageNumber
+        }
     };
 }
 

@@ -55,8 +55,11 @@ function extractFrontInfoForOneAd(element, index, pageNumber) {
         company: validateParse(getCompanyName, [isNotEmptyString])(ad),
         companySecondary: validateParse(getSecondaryCompanyName, [isNotEmptyString])(ad),
         id: validateParse(getId, [isNumber])(ad),
-        adIndex: index,
-        pageNumber
+        meta : {
+            adIndex: index,
+            pageNumber
+        }
+
     }
 }
 

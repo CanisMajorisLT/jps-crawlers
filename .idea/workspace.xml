@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf0c70c-8cb2-480a-b1c6-6533614b8f4f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cvb/main.js" afterPath="$PROJECT_DIR$/build/cvb/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cvb/main.js.map" afterPath="$PROJECT_DIR$/build/cvb/main.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cvb/parser.js" afterPath="$PROJECT_DIR$/build/cvb/parser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cvb/parser.js.map" afterPath="$PROJECT_DIR$/build/cvb/parser.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cvo/main.js" afterPath="$PROJECT_DIR$/build/cvo/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cvo/main.js.map" afterPath="$PROJECT_DIR$/build/cvo/main.js.map" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cvo/parser.js" afterPath="$PROJECT_DIR$/build/cvo/parser.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/cvo/parser.js.map" afterPath="$PROJECT_DIR$/build/cvo/parser.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/runfiles.js" afterPath="$PROJECT_DIR$/build/runfiles.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/runfiles.js.map" afterPath="$PROJECT_DIR$/build/runfiles.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/crawlers/cvb/main.js" afterPath="$PROJECT_DIR$/src/crawlers/cvb/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/crawlers/cvb/parser.js" afterPath="$PROJECT_DIR$/src/crawlers/cvb/parser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/crawlers/cvo/main.js" afterPath="$PROJECT_DIR$/src/crawlers/cvo/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/crawlers/cvo/parser.js" afterPath="$PROJECT_DIR$/src/crawlers/cvo/parser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/crawlers/runfiles.js" afterPath="$PROJECT_DIR$/src/crawlers/runfiles.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/cvb_spec/parser_spec.js" afterPath="$PROJECT_DIR$/test/cvb_spec/parser_spec.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/cvo_spec/fullPage.html" afterPath="$PROJECT_DIR$/test/cvo_spec/fullPage.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/cvo_spec/parser_spec.js" afterPath="$PROJECT_DIR$/test/cvo_spec/parser_spec.js" />
     </list>
     <ignored path="JPS.iws" />
@@ -45,7 +33,7 @@
         <entry file="file://$PROJECT_DIR$/src/crawlers/cvb/parser.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="60" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -61,21 +49,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/crawlers/cvo/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84175086">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parser_spec.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="parser_spec.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/cvo_spec/parser_spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="80" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="80" />
+            <state vertical-scroll-proportion="0.9045553">
+              <caret line="73" column="31" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
+              <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -104,8 +93,8 @@
       <file leaf-file-name="parser.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/crawlers/cvo/parser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.62069">
-              <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+            <state vertical-scroll-proportion="-8.896552">
+              <caret line="84" column="9" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -183,14 +172,14 @@
         <option value="$PROJECT_DIR$/test/cvo_spec/frontJobArticle.html" />
         <option value="$PROJECT_DIR$/src/crawlers/common/validators.js" />
         <option value="$PROJECT_DIR$/test/cvo_spec/fullPage.html" />
-        <option value="$PROJECT_DIR$/src/crawlers/cvo/parser.js" />
-        <option value="$PROJECT_DIR$/src/crawlers/cvb/parser.js" />
-        <option value="$PROJECT_DIR$/test/cvo_spec/parser_spec.js" />
         <option value="$PROJECT_DIR$/test/cvb_spec/parser_spec.js" />
         <option value="$PROJECT_DIR$/src/crawlers/common/core.js" />
         <option value="$PROJECT_DIR$/src/crawlers/cvb/main.js" />
         <option value="$PROJECT_DIR$/src/crawlers/runfiles.js" />
         <option value="$PROJECT_DIR$/src/crawlers/cvo/main.js" />
+        <option value="$PROJECT_DIR$/src/crawlers/cvb/parser.js" />
+        <option value="$PROJECT_DIR$/src/crawlers/cvo/parser.js" />
+        <option value="$PROJECT_DIR$/test/cvo_spec/parser_spec.js" />
       </list>
     </option>
   </component>
@@ -553,9 +542,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3261105" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3261105" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47020584" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47020584" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6088841" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2773,30 +2762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/crawlers/cvb/parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/crawlers/cvo/parser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.62069">
-          <caret line="86" column="0" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/cvo_spec/parser_spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="80" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/cvb_spec/parser_spec.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2831,8 +2796,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/crawlers/cvo/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84175086">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="11" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crawlers/cvb/parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="60" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/crawlers/cvo/parser.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.896552">
+          <caret line="84" column="9" selection-start-line="84" selection-start-column="9" selection-end-line="84" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/cvo_spec/parser_spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9045553">
+          <caret line="73" column="31" selection-start-line="73" selection-start-column="31" selection-end-line="73" selection-end-column="31" />
+          <caret line="74" column="31" selection-start-line="74" selection-start-column="31" selection-end-line="74" selection-end-column="31" />
           <folding />
         </state>
       </provider>

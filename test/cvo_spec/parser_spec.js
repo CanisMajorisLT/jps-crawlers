@@ -62,7 +62,7 @@ describe("Cvb parser", () => {
             let result = parser.extractFrontInfoForOneAd(frontJobArticle, 0, 0);
 
             expect(result).to.be.an('object')
-                .with.all.keys('uri', 'title', 'city', 'company', 'id', 'views', 'expiryDate', 'adIndex', 'pageNumber');
+                .with.all.keys('uri', 'title', 'city', 'company', 'id', 'views', 'expiryDate', 'meta');
 
             expect(result.uri).to.equal('//www.cvonline.lt/darbo-skelbimas/maxima/kasininkas-pardavejas-a-terminuota-sutartis-zarasai-f3013291.html');
             expect(result.title).to.equal('KASININKAS - PARDAVĖJAS (-A) TERMINUOTA SUTARTIS (ZARASAI)');
@@ -71,8 +71,8 @@ describe("Cvb parser", () => {
             expect(result.id).to.equal('Jobad3013291');
             expect(result.views).to.equal(28);
             expect(result.expiryDate).to.equal(1456696800000);
-            expect(result.adIndex).to.equal(0);
-            expect(result.pageNumber).to.equal(0);
+            expect(result.meta.adIndex).to.equal(0);
+            expect(result.meta.pageNumber).to.equal(0);
 
         })
 

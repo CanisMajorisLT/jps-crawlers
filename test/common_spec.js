@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import  $ from 'cheerio'
-import { validateParse, isNumber, isNotEmptyArray, } from '../src/crawlers/common/validators'
+import { validateParse, isNumber, isNotEmptyArray } from '../src/crawlers/common/validators'
 import { makeParserError } from '../src/crawlers/common/errors'
 
 describe("Crawlers common spec suite", () =>{
