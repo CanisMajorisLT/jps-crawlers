@@ -32,12 +32,12 @@ describe("Cvb parser", () => {
 
     describe("extractFrontInfo", () => {
         it("returns an array of extracted data", () => {
-            const result = parser.extractFrontInfo(fullPageHtml);
+            const result = parser.extractFrontInfo(fullPageHtml, {pageNumber: 0});
             expect(result).to.be.an('array').with.length(52);
 
         });
 /*
-        console.log(fullPageHtml);
+        console.log(fullPageHtml); //TODO
         const result = parser.extractFrontInfo(fullPageHtml);
 
         result.forEach((r)=> {

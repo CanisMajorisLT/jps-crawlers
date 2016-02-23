@@ -20,7 +20,7 @@ export let extractTotalPageCount = validateParse(extractTotalPageCount_, [isNumb
 
 
 
-function extractFrontInfoForOneAd(element) {
+function extractFrontInfoForOneAd(element, index, pageNumber) {
     var ad = $.load(element);
 
     function getUri(ad) {
@@ -54,12 +54,14 @@ function extractFrontInfoForOneAd(element) {
         city: validateParse(getCity, [isNotEmptyString])(ad),
         company: validateParse(getCompanyName, [isNotEmptyString])(ad),
         companySecondary: validateParse(getSecondaryCompanyName, [isNotEmptyString])(ad),
-        id: validateParse(getId, [isNumber])(ad)
+        id: validateParse(getId, [isNumber])(ad),
+        adIndex: index,
+        pageNumber
     }
 }
 
 
-export function extractFrontInfo(html){
+export function extractFrontInfo(html, task){
     var page = $.load(html);
 
     function getArticles(page) {
@@ -68,7 +70,7 @@ export function extractFrontInfo(html){
 
     const articles = validateParse(getArticles, [isNotEmptyArray])(page);
 
-    return articles.map(extractFrontInfoForOneAd)
+    return articles.map((elem, index)=> extractFrontInfoForOneAd(elem, index, task.pageNumber))
 }
 
 

@@ -1,4 +1,7 @@
 import poly from 'babel-polyfill'
 
-//import main from './cvb/main'
-import main from './cvo/main'
+import CVB from './cvb/main'
+import CVO from './cvo/main'
+
+
+CVO();

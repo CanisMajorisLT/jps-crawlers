@@ -30,7 +30,7 @@ function extractTotalPageCount_(html) {
 
 var extractTotalPageCount = exports.extractTotalPageCount = (0, _validators.validateParse)(extractTotalPageCount_, [_validators.isNumber]);
 
-function extractFrontInfoForOneAd(element) {
+function extractFrontInfoForOneAd(element, index, pageNumber) {
     var ad = _cheerio2.default.load(element);
 
     function getUri(ad) {
@@ -64,11 +64,13 @@ function extractFrontInfoForOneAd(element) {
         city: (0, _validators.validateParse)(getCity, [_validators.isNotEmptyString])(ad),
         company: (0, _validators.validateParse)(getCompanyName, [_validators.isNotEmptyString])(ad),
         companySecondary: (0, _validators.validateParse)(getSecondaryCompanyName, [_validators.isNotEmptyString])(ad),
-        id: (0, _validators.validateParse)(getId, [_validators.isNumber])(ad)
+        id: (0, _validators.validateParse)(getId, [_validators.isNumber])(ad),
+        adIndex: index,
+        pageNumber: pageNumber
     };
 }
 
-function extractFrontInfo(html) {
+function extractFrontInfo(html, task) {
     var page = _cheerio2.default.load(html);
 
     function getArticles(page) {
@@ -77,6 +79,8 @@ function extractFrontInfo(html) {
 
     var articles = (0, _validators.validateParse)(getArticles, [_validators.isNotEmptyArray])(page);
 
-    return articles.map(extractFrontInfoForOneAd);
+    return articles.map(function (elem, index) {
+        return extractFrontInfoForOneAd(elem, index, task.pageNumber);
+    });
 }
 //# sourceMappingURL=parser.js.map

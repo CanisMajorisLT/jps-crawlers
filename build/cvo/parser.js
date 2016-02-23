@@ -33,7 +33,7 @@ function extractTotalPageCount_(html) {
 
 var extractTotalPageCount = exports.extractTotalPageCount = (0, _validators.validateParse)(extractTotalPageCount_, [_validators.isNumber]);
 
-function extractFrontInfoForOneAd(element) {
+function extractFrontInfoForOneAd(element, index, pageNumber) {
     var ad = _cheerio2.default.load(element);
 
     function getUri(ad) {
@@ -86,19 +86,25 @@ function extractFrontInfoForOneAd(element) {
         company: (0, _validators.validateParse)(getCompanyName, [_validators.isNotElementNotFound])(ad),
         views: (0, _validators.validateParse)(getViews, [_validators.isNumber])(ad),
         expiryDate: (0, _validators.validateParse)(getExpiryDate, [_validators.isNumber])(ad),
-        id: (0, _validators.validateParse)(getId, [_validators.isNotEmptyString])(ad)
+        id: (0, _validators.validateParse)(getId, [_validators.isNotEmptyString])(ad),
+        adIndex: index,
+        pageNumber: pageNumber
     };
 }
 
-function extractFrontInfo(html) {
+function extractFrontInfo(html, task) {
     var page = _cheerio2.default.load(html);
 
     function getArticles(page) {
-        return page('#table_jobs tbody').children().get().slice(1);
+        return page('#table_jobs tbody tr').filter(function () {
+            return (0, _cheerio2.default)(this).text() !== 'Premium listing';
+        }).get().slice();
     }
 
     var articles = (0, _validators.validateParse)(getArticles, [_validators.isNotEmptyArray])(page);
 
-    return articles.map(extractFrontInfoForOneAd);
+    return articles.map(function (elem, index) {
+        return extractFrontInfoForOneAd(elem, index, task.pageNumber);
+    });
 }
 //# sourceMappingURL=parser.js.map

@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"runfiles.js","sourcesContent":[]}
+{"version":3,"sources":["../src/crawlers/runfiles.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;AAMA","file":"runfiles.js","sourcesContent":["import poly from 'babel-polyfill'\r\n\r\nimport CVB from './cvb/main'\r\nimport CVO from './cvo/main'\r\n\r\n\r\nCVO();\r\n"]}

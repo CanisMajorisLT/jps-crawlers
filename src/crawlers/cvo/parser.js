@@ -23,7 +23,7 @@ export let extractTotalPageCount = validateParse(extractTotalPageCount_, [isNumb
 
 
 
-export function extractFrontInfoForOneAd(element) {
+export function extractFrontInfoForOneAd(element, index, pageNumber) {
     var ad = $.load(element);
 
     function getUri(ad) {
@@ -78,21 +78,25 @@ export function extractFrontInfoForOneAd(element) {
         company: validateParse(getCompanyName, [isNotElementNotFound])(ad),
         views: validateParse(getViews, [isNumber])(ad),
         expiryDate: validateParse(getExpiryDate, [isNumber])(ad),
-        id: validateParse(getId, [isNotEmptyString])(ad)
+        id: validateParse(getId, [isNotEmptyString])(ad),
+        adIndex: index,
+        pageNumber
     }
 }
 
 
-export function extractFrontInfo(html){
-    var page = $.load(html);
+export function extractFrontInfo(html, task){
+    const  page = $.load(html);
 
     function getArticles(page) {
-        return page('#table_jobs tbody').children().get().slice(1)
+        return page('#table_jobs tbody tr').filter(function(){
+            return $(this).text() !== 'Premium listing'
+        }).get().slice()
     }
 
     const articles = validateParse(getArticles, [isNotEmptyArray])(page);
 
-    return articles.map(extractFrontInfoForOneAd)
+    return articles.map((elem, index)=> extractFrontInfoForOneAd(elem, index, task.pageNumber))
 }
 
 
