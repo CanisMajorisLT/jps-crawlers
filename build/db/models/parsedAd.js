@@ -34,7 +34,7 @@ ParsedAdSchema.statics.insertDocs = function insertDocs(data, source, date) {
         return {
             adId: ad.id,
             source: source,
-            parseDate: {
+            parsedDate: {
                 uri: ad.uri,
                 title: ad.title,
                 city: ad.city,
@@ -44,8 +44,8 @@ ParsedAdSchema.statics.insertDocs = function insertDocs(data, source, date) {
             },
             meta: {
                 parseDate: date,
-                adIndex: ad.adIndex,
-                pageNumber: ad.pageNumber
+                adIndex: ad.meta.adIndex,
+                pageNumber: ad.meta.pageNumber
             }
         };
     });
