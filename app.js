@@ -20,7 +20,7 @@ function createCrawlLog() {
     var prom = new Promise(function(resolve, reject){
         var log = new CrawlLog({
             crawlDate: crawlDate,
-            crawlDuration: new Date() - crawlDate,
+            duration: new Date() - crawlDate,
             sources: ['CVB', 'CVO']
         });
 

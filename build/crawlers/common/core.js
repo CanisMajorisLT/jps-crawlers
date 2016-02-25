@@ -21,24 +21,25 @@ var getNumberOfFrontPages = exports.getNumberOfFrontPages = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.prev = 0;
-                        return _context.abrupt('return', 5);
+                        _context.next = 3;
+                        return (0, _scrape.getPageBody)(uri);
 
-                    case 4:
+                    case 3:
                         html = _context.sent;
                         return _context.abrupt('return', parseInt(parser(html)));
 
-                    case 8:
-                        _context.prev = 8;
+                    case 7:
+                        _context.prev = 7;
                         _context.t0 = _context['catch'](0);
 
                         console.log('getNumberOfFrontPages threw error', _context.t0);
 
-                    case 11:
+                    case 10:
                     case 'end':
                         return _context.stop();
                 }
             }
-        }, _callee, this, [[0, 8]]);
+        }, _callee, this, [[0, 7]]);
     }));
 
     return function getNumberOfFrontPages(_x3, _x4) {

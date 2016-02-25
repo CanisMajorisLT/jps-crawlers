@@ -22,6 +22,9 @@
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5"
   },
+  "engines": {
+    "node": "0.12.7"
+  },
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill --recursive",
     "test:watch": "npm run test -- --watch",

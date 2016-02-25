@@ -57,7 +57,7 @@ export function generateFrontInfoTasks(n, startIndex = 0, config) {
  */
 export async function getNumberOfFrontPages(uri, parser) {
     try {
-        return 5;
+        //return 2;
         let html = await getPageBody(uri);
         return parseInt(parser(html));
     } catch (error) {

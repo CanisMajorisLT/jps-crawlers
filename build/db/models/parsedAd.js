@@ -28,19 +28,13 @@ var ParsedAdSchema = new _mongoose2.default.Schema({
     }
 });
 
-/**
- * Creates documents for ParsedAdSchema model
- * @param {array} data
- * @param {string} source
- * @param {date} date
- */
 ParsedAdSchema.statics.insertDocs = function insertDocs(data, source, date) {
 
     var dataForInsert = data.map(function (ad) {
         return {
             adId: ad.id,
             source: source,
-            parsedData: {
+            parseDate: {
                 uri: ad.uri,
                 title: ad.title,
                 city: ad.city,
@@ -50,13 +44,14 @@ ParsedAdSchema.statics.insertDocs = function insertDocs(data, source, date) {
             },
             meta: {
                 parseDate: date,
-                adIndex: ad.meta.adIndex,
-                pageNumber: ad.meta.pageNumber
+                adIndex: ad.adIndex,
+                pageNumber: ad.pageNumber
             }
         };
     });
 
     this.create(dataForInsert, function (error, doc) {
+        console.log('successfully created parsedads', doc);
         error && console.log('Error  while creating new ParsedAd', error);
     });
 };
