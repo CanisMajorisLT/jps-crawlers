@@ -1,5 +1,5 @@
 import $ from 'cheerio'
-import { validateParse, isNotEmptyString, isNumber, isNotEmptyArray,
+import { validateParse, isNotEmptyString, isNumber, isDate, isNotEmptyArray,
          isNotElementNotFound, ELEMENT_NOT_FOUND} from '../common/validators'
 
 
@@ -68,7 +68,7 @@ export function extractFrontInfoForOneAd(element, index, pageNumber) {
     function getExpiryDate(ad) {
         const dateWithText = ad('td.t_jobs_tech p').text();
         const expirtyDate = dateWithText.match(/iki\s(\d+\.\d+\.\d+)/)[1];
-        return new Date(expirtyDate).getTime()
+        return new Date(expirtyDate)
     }
 
     return {
@@ -77,7 +77,7 @@ export function extractFrontInfoForOneAd(element, index, pageNumber) {
         city: validateParse(getCity, [isNotEmptyString])(ad),
         company: validateParse(getCompanyName, [isNotElementNotFound])(ad),
         views: validateParse(getViews, [isNumber])(ad),
-        expiryDate: validateParse(getExpiryDate, [isNumber])(ad),
+        expiryDate: validateParse(getExpiryDate, [isDate])(ad),
         id: validateParse(getId, [isNotEmptyString])(ad),
         meta : {
             adIndex: index,

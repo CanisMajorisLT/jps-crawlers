@@ -1,4 +1,4 @@
-import { isArray, isFinite as isNumber_ } from 'lodash'
+import { isArray, isFinite as isNumber_, isDate as isDate_ } from 'lodash'
 import { makeParserError } from './errors'
 
 /**
@@ -44,6 +44,10 @@ export const ELEMENT_NOT_FOUND = '@@ELEMENT_NOT_FOUND';
 
 export function isNotElementNotFound(v) {
     return v !== ELEMENT_NOT_FOUND
+}
+
+export function isDate(v) {
+    return isDate_(v)
 }
 
 

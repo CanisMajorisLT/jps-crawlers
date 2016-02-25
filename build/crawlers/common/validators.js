@@ -9,6 +9,7 @@ exports.isNotEmptyString = isNotEmptyString;
 exports.isNumber = isNumber;
 exports.isNotEmptyArray = isNotEmptyArray;
 exports.isNotElementNotFound = isNotElementNotFound;
+exports.isDate = isDate;
 
 var _lodash = require('lodash');
 
@@ -58,5 +59,9 @@ var ELEMENT_NOT_FOUND = exports.ELEMENT_NOT_FOUND = '@@ELEMENT_NOT_FOUND';
 
 function isNotElementNotFound(v) {
     return v !== ELEMENT_NOT_FOUND;
+}
+
+function isDate(v) {
+    return (0, _lodash.isDate)(v);
 }
 //# sourceMappingURL=validators.js.map

@@ -70,7 +70,7 @@ describe("Cvb parser", () => {
             expect(result.company).to.equal('MAXIMA');
             expect(result.id).to.equal('Jobad3013291');
             expect(result.views).to.equal(28);
-            expect(result.expiryDate).to.equal(1456696800000);
+            expect(result.expiryDate).to.deep.equal(new Date('2016.02.29'));
             expect(result.meta.adIndex).to.equal(0);
             expect(result.meta.pageNumber).to.equal(0);
 

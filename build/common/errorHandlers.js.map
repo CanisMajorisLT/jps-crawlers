@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../src/crawlers/common/errorHandlers.js"],"names":[],"mappings":";;AAEA,QAAQ,iBAAR,GAA4B,SAAS,iBAAT,CAA2B,KAA3B,EAAkC;AAC1D,YAAQ,KAAR,CAAc,uBAAd,EAAuC,KAAvC,EAD0D;CAAlC","file":"errorHandlers.js","sourcesContent":["\r\n\r\nexports.handleFailedFetch = function handleFailedFetch(error) {\r\n    console.error('Handling failed fetch', error)\r\n};"]}

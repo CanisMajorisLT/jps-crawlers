@@ -40,10 +40,10 @@ function generateFrontInfoTask(pageNumber, config = defaultConfig) {
  * @param {number=0} startIndex
  * @returns {Array}
  */
-export function generateFrontInfoTasks(n, startIndex = 0) {
+export function generateFrontInfoTasks(n, startIndex = 0, config) {
     const tasks = [];
     for (var i = startIndex; i <= n; i++) {
-        tasks.push(generateFrontInfoTask(i))
+        tasks.push(generateFrontInfoTask(i, config))
     }
 
     return tasks
@@ -57,6 +57,7 @@ export function generateFrontInfoTasks(n, startIndex = 0) {
  */
 export async function getNumberOfFrontPages(uri, parser) {
     try {
+        return 5;
         let html = await getPageBody(uri);
         return parseInt(parser(html));
     } catch (error) {
@@ -81,10 +82,12 @@ export function parseFrontPageArticlesFactory(uri, parser) {
     }
 }
 
-export function handleTaskSuccessFacory(site) {
+export function handleTaskSuccessFactory(site, callback) {
     return function handleTaskSuccess({result: result, task: task}) {
         console.log(`${site} Successfully finished parsing front page nr ${task.pageNumber}`);
-        // write to DB, pass down for metadata add
+
+        // write to DB
+        callback && callback(result, site, task)
     }
 }
 

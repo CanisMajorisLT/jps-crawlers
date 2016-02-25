@@ -5,35 +5,36 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var parseCVB = function () {
-    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee() {
+    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(taskSuccessHandler, taskConfig, onDone) {
         var handleTaskFail, handleTaskSuccess, adsParser, worker, FrontInfoFetchingQueue, pages, tasks;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
                         handleTaskFail = (0, _core.handleTaskFailureFactory)('CVB');
-                        handleTaskSuccess = (0, _core.handleTaskSuccessFacory)('CVB');
+                        handleTaskSuccess = (0, _core.handleTaskSuccessFactory)('CVB', taskSuccessHandler);
                         adsParser = (0, _core.parseFrontPageArticlesFactory)(FRONT_PAGE_URI, _parser.extractFrontInfo);
                         worker = (0, _queueWorkerFactory.queueWorkerFactory)(adsParser, handleTaskFail.handler, handleTaskSuccess);
                         FrontInfoFetchingQueue = _async2.default.queue(worker, DEFAULT_WORKERS_NUMBER);
 
+                        if (onDone !== undefined) FrontInfoFetchingQueue.drain = onDone;
 
                         handleTaskFail.setQueue(FrontInfoFetchingQueue); // so task can be requeued on fail
 
-                        _context.next = 8;
+                        _context.next = 9;
                         return (0, _core.getNumberOfFrontPages)(FRONT_PAGE_URI.replace('${page}', '1'), _parser.extractTotalPageCount);
 
-                    case 8:
+                    case 9:
                         pages = _context.sent;
 
                         console.log('Page count: ' + pages);
 
-                        tasks = (0, _core.generateFrontInfoTasks)(pages, 1);
+                        tasks = (0, _core.generateFrontInfoTasks)(pages, 1, taskConfig);
 
 
                         FrontInfoFetchingQueue.push(tasks);
 
-                    case 12:
+                    case 13:
                     case 'end':
                         return _context.stop();
                 }
@@ -41,7 +42,7 @@ var parseCVB = function () {
         }, _callee, this);
     }));
 
-    return function parseCVB() {
+    return function parseCVB(_x, _x2, _x3) {
         return ref.apply(this, arguments);
     };
 }();

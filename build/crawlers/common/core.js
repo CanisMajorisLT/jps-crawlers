@@ -21,25 +21,24 @@ var getNumberOfFrontPages = exports.getNumberOfFrontPages = function () {
                 switch (_context.prev = _context.next) {
                     case 0:
                         _context.prev = 0;
-                        _context.next = 3;
-                        return (0, _scrape.getPageBody)(uri);
+                        return _context.abrupt('return', 5);
 
-                    case 3:
+                    case 4:
                         html = _context.sent;
                         return _context.abrupt('return', parseInt(parser(html)));
 
-                    case 7:
-                        _context.prev = 7;
+                    case 8:
+                        _context.prev = 8;
                         _context.t0 = _context['catch'](0);
 
                         console.log('getNumberOfFrontPages threw error', _context.t0);
 
-                    case 10:
+                    case 11:
                     case 'end':
                         return _context.stop();
                 }
             }
-        }, _callee, this, [[0, 7]]);
+        }, _callee, this, [[0, 8]]);
     }));
 
     return function getNumberOfFrontPages(_x3, _x4) {
@@ -58,7 +57,7 @@ var getNumberOfFrontPages = exports.getNumberOfFrontPages = function () {
 
 exports.generateFrontInfoTasks = generateFrontInfoTasks;
 exports.parseFrontPageArticlesFactory = parseFrontPageArticlesFactory;
-exports.handleTaskSuccessFacory = handleTaskSuccessFacory;
+exports.handleTaskSuccessFactory = handleTaskSuccessFactory;
 exports.handleTaskFailureFactory = handleTaskFailureFactory;
 
 var _scrape = require('./scrape');
@@ -115,10 +114,11 @@ function generateFrontInfoTask(pageNumber) {
  */
 function generateFrontInfoTasks(n) {
     var startIndex = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
+    var config = arguments[2];
 
     var tasks = [];
     for (var i = startIndex; i <= n; i++) {
-        tasks.push(generateFrontInfoTask(i));
+        tasks.push(generateFrontInfoTask(i, config));
     }
 
     return tasks;
@@ -153,13 +153,15 @@ function generateFrontInfoTasks(n) {
     }();
 }
 
-function handleTaskSuccessFacory(site) {
+function handleTaskSuccessFactory(site, callback) {
     return function handleTaskSuccess(_ref) {
         var result = _ref.result;
         var task = _ref.task;
 
         console.log(site + ' Successfully finished parsing front page nr ' + task.pageNumber);
-        // write to DB, pass down for metadata add
+
+        // write to DB
+        callback && callback(result, site, task);
     };
 }
 

@@ -76,7 +76,7 @@ function extractFrontInfoForOneAd(element, index, pageNumber) {
     function getExpiryDate(ad) {
         var dateWithText = ad('td.t_jobs_tech p').text();
         var expirtyDate = dateWithText.match(/iki\s(\d+\.\d+\.\d+)/)[1];
-        return new Date(expirtyDate).getTime();
+        return new Date(expirtyDate);
     }
 
     return {
@@ -85,7 +85,7 @@ function extractFrontInfoForOneAd(element, index, pageNumber) {
         city: (0, _validators.validateParse)(getCity, [_validators.isNotEmptyString])(ad),
         company: (0, _validators.validateParse)(getCompanyName, [_validators.isNotElementNotFound])(ad),
         views: (0, _validators.validateParse)(getViews, [_validators.isNumber])(ad),
-        expiryDate: (0, _validators.validateParse)(getExpiryDate, [_validators.isNumber])(ad),
+        expiryDate: (0, _validators.validateParse)(getExpiryDate, [_validators.isDate])(ad),
         id: (0, _validators.validateParse)(getId, [_validators.isNotEmptyString])(ad),
         meta: {
             adIndex: index,
