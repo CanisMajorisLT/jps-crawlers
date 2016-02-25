@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 
-const DEFAULT_MONGO_ADRESS = 'mongodb://localhost:27017';
+const DEFAULT_MONGO_ADRESS = process.env.MONGO_URL; //'mongodb://localhost:27017';
 
 mongoose.connect(DEFAULT_MONGO_ADRESS);
 

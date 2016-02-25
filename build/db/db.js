@@ -14,7 +14,7 @@ var _crawlLog2 = _interopRequireDefault(_crawlLog);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var DEFAULT_MONGO_ADRESS = 'mongodb://localhost:27017';
+var DEFAULT_MONGO_ADRESS = process.env.MONGO_URL; //'mongodb://localhost:27017';
 
 _mongoose2.default.connect(DEFAULT_MONGO_ADRESS);
 
