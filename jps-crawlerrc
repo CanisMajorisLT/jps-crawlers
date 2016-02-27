@@ -1,1 +1,1 @@
-{"config":"Bye world :)Sat Feb 27 2016 10:01:52 GMT+0200 (FLE Standard Time)"}
+{"general":{"crawlInterval":200000,"workers":5},"task":{"defaultTaskDelay":5000,"defaultTaskRequeue":5,"defaultTaskRetry":5,"defaultTaskRetryInterval":100}}

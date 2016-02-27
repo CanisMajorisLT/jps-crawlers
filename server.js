@@ -1,1 +1,1 @@
-require('./build/web-dashboard/main');
+require('./build/web-dashboard/server/main');
