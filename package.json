@@ -1,5 +1,5 @@
 {
-  "name": "jps",
+  "name": "jps-crawler",
   "version": "0.0.1",
   "description": "Web scrapper for job ad websites",
   "main": "app.js",
@@ -7,8 +7,10 @@
     "async": "^1.5.2",
     "babel-polyfill": "^6.5.0",
     "cheerio": "^0.20.0",
+    "express": "^4.13.4",
     "lodash": "^4.5.0",
     "mongoose": "^4.4.5",
+    "rc": "^1.1.6",
     "request-promise": "^2.0.1"
   },
   "devDependencies": {
@@ -32,5 +34,6 @@
     "build": "babel -w src/ -d build -s"
   },
   "author": "Vytenis",
+  "private": true,
   "license": "ISC"
 }
