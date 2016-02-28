@@ -2,31 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf0c70c-8cb2-480a-b1c6-6533614b8f4f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.jps-crawlerrc" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jps-crawlerrc" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/crawlers/cvb/main.js" afterPath="$PROJECT_DIR$/build/crawlers/cvb/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/crawlers/cvb/main.js.map" afterPath="$PROJECT_DIR$/build/crawlers/cvb/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/crawlers/cvo/main.js" afterPath="$PROJECT_DIR$/build/crawlers/cvo/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/crawlers/cvo/main.js.map" afterPath="$PROJECT_DIR$/build/crawlers/cvo/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/crawlers/main.js" afterPath="$PROJECT_DIR$/build/crawlers/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/crawlers/main.js.map" afterPath="$PROJECT_DIR$/build/crawlers/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/db/models/parsedAd.js" afterPath="$PROJECT_DIR$/build/db/models/parsedAd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/db/models/parsedAd.js.map" afterPath="$PROJECT_DIR$/build/db/models/parsedAd.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/web-dashboard/server/main.js" afterPath="$PROJECT_DIR$/build/web-dashboard/server/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/web-dashboard/server/main.js.map" afterPath="$PROJECT_DIR$/build/web-dashboard/server/main.js.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.js" afterPath="$PROJECT_DIR$/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/templates.js" afterPath="$PROJECT_DIR$/public/templates.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/crawlers/cvb/main.js" afterPath="$PROJECT_DIR$/src/crawlers/cvb/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/crawlers/cvo/main.js" afterPath="$PROJECT_DIR$/src/crawlers/cvo/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/crawlers/main.js" afterPath="$PROJECT_DIR$/src/crawlers/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/db/models/parsedAd.js" afterPath="$PROJECT_DIR$/src/db/models/parsedAd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/web-dashboard/client/config-form/configForm.html" afterPath="$PROJECT_DIR$/src/web-dashboard/client/config-form/configForm.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/web-dashboard/server/main.js" afterPath="$PROJECT_DIR$/src/web-dashboard/server/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DOKKU_SCALE" afterPath="$PROJECT_DIR$/DOKKU_SCALE" />
     </list>
     <ignored path="JPS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,27 +38,27 @@
         <entry file="file://$PROJECT_DIR$/crontab.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Procfile" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Procfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="0.078125">
               <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.js">
+      <file leaf-file-name="DOKKU_SCALE" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DOKKU_SCALE">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="3" selection-start-line="15" selection-start-column="3" selection-end-line="15" selection-end-column="3" />
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -101,7 +78,7 @@
         <entry file="file://$PROJECT_DIR$/src/web-dashboard/server/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -129,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7478992">
-              <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+            <state vertical-scroll-proportion="-2.0454545">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -188,7 +165,6 @@
         <option value="$PROJECT_DIR$/src/db/models/crawlLog.js" />
         <option value="$PROJECT_DIR$/src/db/db.js" />
         <option value="$PROJECT_DIR$/src/web-dashboard/main.js" />
-        <option value="$PROJECT_DIR$/DOKKU_SCALE" />
         <option value="$PROJECT_DIR$/gulp.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/build/web-dashboard/server/main.js" />
@@ -210,11 +186,12 @@
         <option value="$PROJECT_DIR$/jps-crawlerrc" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/src/web-dashboard/client/config-form/configForm.html" />
-        <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/ttt.js" />
-        <option value="$PROJECT_DIR$/crontab.js" />
-        <option value="$PROJECT_DIR$/src/web-dashboard/server/main.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/crontab.js" />
+        <option value="$PROJECT_DIR$/Procfile" />
+        <option value="$PROJECT_DIR$/src/web-dashboard/server/main.js" />
+        <option value="$PROJECT_DIR$/DOKKU_SCALE" />
       </list>
     </option>
   </component>
@@ -392,7 +369,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-294" y="-1088" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15595363" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -401,7 +378,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3445287" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3109426" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.6923077" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.56988084" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -605,14 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DOKKU_SCALE">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.istanbul.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0955414">
@@ -793,31 +762,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crontab.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/web-dashboard/server/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
@@ -827,8 +772,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7478992">
-          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
+        <state vertical-scroll-proportion="-2.0454545">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crontab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/web-dashboard/server/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DOKKU_SCALE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Procfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.078125">
+          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
           <folding />
         </state>
       </provider>
