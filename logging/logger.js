@@ -6,6 +6,7 @@ module.exports = new (winston.Logger)({
            level: 'debug',
            colorize: true,
            prettyPrint: true,
+           handleExceptions: true,
            humanReadableUnhandledException: true
        }),
        new (winston.transports.File)({

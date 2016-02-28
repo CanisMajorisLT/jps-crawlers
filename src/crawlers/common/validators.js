@@ -15,10 +15,11 @@ export function validateParse(fnc, validators) { //TODO test
     function errorWrapperForParserFunctions() {
         const element = arguments[0];
         const result = fnc.apply(this, arguments);
+        const elementToLog = element.html ? element.html() : element;
 
         validators.forEach((validator)=> {
             if (!validator(result)) {
-                throw makeParserError(element.html ? element.html() : element, parserName, validator.name)
+                throw makeParserError(elementToLog.slice(0, 300), parserName, validator.name)
             }
         });
 

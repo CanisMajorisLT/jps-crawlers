@@ -36,11 +36,11 @@ function createCrawlLog() {
             crawlDate: crawlDate,
             duration: new Date() - crawlDate,
             sources: ['CVB', 'CVO'],
-            errors: errorsLog
+            crawlErrors: errorsLog
         });
 
-        log.save(function(error, doc) {
-            resolve()
+        log.save(function(error, doc){
+            logger.info('Successfully created crawl log', {doc: doc})
         })
     })
 }

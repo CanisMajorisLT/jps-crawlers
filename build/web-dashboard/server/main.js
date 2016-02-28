@@ -16,6 +16,10 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
+var _logger = require('../../../logging/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
@@ -98,8 +102,30 @@ app.post('/options', function () {
     };
 }());
 
+app.get('/info', function () {
+    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(req, res) {
+        return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            while (1) {
+                switch (_context3.prev = _context3.next) {
+                    case 0:
+                    case 'end':
+                        return _context3.stop();
+                }
+            }
+        }, _callee3, this);
+    }));
+
+    return function (_x5, _x6) {
+        return ref.apply(this, arguments);
+    };
+}());
+
+// error log,
+// when is next crawl
+// totals crawls
+// total ad records
 app.listen(process.env.PORT || 3000);
-console.log('Listening on port:', process.env.PORT || 3000);
+_logger2.default.info('Listening on port:', process.env.PORT || 3000);
 
 function readConfig() {
     return new Promise(function (resolve) {

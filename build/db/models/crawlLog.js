@@ -11,8 +11,8 @@ var MODEL_NAME = 'CrawlLog';
 var CrawlLogSchema = new _mongoose2.default.Schema({
     crawlDate: Date,
     duration: String,
-    sources: [String]
-    //errors: mongoose.Schema.Types.Mixed // TODO
+    sources: [String],
+    crawlErrors: _mongoose2.default.Schema.Types.Mixed
 });
 
 _mongoose2.default.model(MODEL_NAME, CrawlLogSchema);

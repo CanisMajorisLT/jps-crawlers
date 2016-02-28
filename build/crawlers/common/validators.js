@@ -30,10 +30,11 @@ function validateParse(fnc, validators) {
     function errorWrapperForParserFunctions() {
         var element = arguments[0];
         var result = fnc.apply(this, arguments);
+        var elementToLog = element.html ? element.html() : element;
 
         validators.forEach(function (validator) {
             if (!validator(result)) {
-                throw (0, _errors.makeParserError)(element.html ? element.html() : element, parserName, validator.name);
+                throw (0, _errors.makeParserError)(elementToLog.slice(0, 300), parserName, validator.name);
             }
         });
 

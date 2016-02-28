@@ -15,7 +15,6 @@ var _crawlLog2 = _interopRequireDefault(_crawlLog);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MONGODB_ADDRESS = process.env.NODE_ENV === 'prod' ? process.env.MONGO_URL : 'mongodb://localhost:27017';
-
 _mongoose2.default.connect(MONGODB_ADDRESS);
 
 // load models
