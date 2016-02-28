@@ -2,7 +2,7 @@ require('babel-polyfill');
 require('./build/db/db');
 var mongoose = require('mongoose');
 var crawlers = require('./build/crawlers/main');
-var config = require('./config');
+var getConfig = require('./config');
 
 var CrawlLog = mongoose.model('CrawlLog');
 var ParsedAd = mongoose.model('ParsedAd');
@@ -35,14 +35,31 @@ function createCrawlLog() {
 function closeMongoConnection() {
     mongoose.disconnect();
 }
-console.log('Starting crawler with config', config);
 
-crawlers.crawl({
-    taskSuccessHandler: saveToDb,
-    onDone: function(){
-        createCrawlLog();
-        Promise.all(savingToDbPromises)
-            .then(closeMongoConnection)
-    },
-    config: config
-});
+
+function performCrawl(config) {
+    crawlers.crawl({
+        taskSuccessHandler: saveToDb,
+        onDone: function(){
+            createCrawlLog();
+            Promise.all(savingToDbPromises)
+                .then(closeMongoConnection)
+        },
+        config: config
+    });
+}
+
+
+function intervalCrawl() {
+    var HOUR = 1000 * 60 * 60;
+    var config = getConfig();
+    var nextCrawlIn = Math.max(1, parseInt(config.general.crawlInterval)) * HOUR;
+    console.log('Starting crawler with config', config);
+
+    performCrawl(config);
+
+    console.log('Next crawl in ', nextCrawlIn);
+    setTimeout(intervalCrawl, nextCrawlIn)
+}
+
+intervalCrawl();
