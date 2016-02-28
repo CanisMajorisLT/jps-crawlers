@@ -3,7 +3,6 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import fs from 'fs'
 import path from 'path'
-import crawlerCrontab from '../../../crontab'
 
 const configPath = path.join(__dirname, '../../..', '.jps-crawlerrc');
 
