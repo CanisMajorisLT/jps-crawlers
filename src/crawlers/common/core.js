@@ -20,10 +20,11 @@ const defaultConfig = {
 /**
  * Generates object used for doing parse task
  * @param pageNumber
+ * @param {boolean} isLastPage
  * @param {object=} config
  * @returns {{pageNumber: *, expires: *, requeue: number, timesRequeued: number, retry: number, retryInterval: number, delay: number}}
  */
-function generateFrontInfoTask(pageNumber, config = defaultConfig) {
+function generateFrontInfoTask(pageNumber, isLastPage, config = defaultConfig) {
     return {
         pageNumber,
         expires: datePlusHours(1),
@@ -31,7 +32,8 @@ function generateFrontInfoTask(pageNumber, config = defaultConfig) {
         timesRequeued: 0, // optional
         retry: config.DEFAULT_TASK_RETRY, // optional
         retryInterval: config.DEFAULT_TASK_RETRY_INTERVAL, // optional
-        delay: config.DEFAULT_TASK_DELAY //optional
+        delay: config.DEFAULT_TASK_DELAY, //optional
+        isLastPage
     }
 }
 
@@ -39,12 +41,13 @@ function generateFrontInfoTask(pageNumber, config = defaultConfig) {
  * Generates n number of tasks for worker
  * @param {number} n
  * @param {number=0} startIndex
+ * @param {object} config
  * @returns {Array}
  */
 export function generateFrontInfoTasks(n, startIndex = 0, config) {
     const tasks = [];
     for (var i = startIndex; i <= n; i++) {
-        tasks.push(generateFrontInfoTask(i, config))
+        tasks.push(generateFrontInfoTask(i, i === n, config))
     }
 
     return tasks

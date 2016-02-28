@@ -71,7 +71,8 @@ export function extractFrontInfo(html, task){
         return page('#job_ad_list article').get()
     }
 
-    const articles = validateParse(getArticles, [isNotEmptyArray])(page);
+    // last page can sometimes have no ads, so validation fires alarm too often
+    const articles = task.isLastPage ? getArticles(page) : validateParse(getArticles, [isNotEmptyArray])(page);
 
     return articles.map((elem, index)=> extractFrontInfoForOneAd(elem, index, task.pageNumber))
 }

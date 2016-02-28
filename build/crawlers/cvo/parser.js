@@ -103,7 +103,8 @@ function extractFrontInfo(html, task) {
         }).get().slice();
     }
 
-    var articles = (0, _validators.validateParse)(getArticles, [_validators.isNotEmptyArray])(page);
+    // last page can sometimes have no ads, so validation fires alarm too often
+    var articles = task.isLastPage ? getArticles(page) : (0, _validators.validateParse)(getArticles, [_validators.isNotEmptyArray])(page);
 
     return articles.map(function (elem, index) {
         return extractFrontInfoForOneAd(elem, index, task.pageNumber);
