@@ -30,7 +30,7 @@ function crontabInit(error, crontab) {
 }
 
 if (process.env.NODE_ENV === 'prod') {
-    cron.load(crontabInit())
+    cron.load(crontabInit)
 } else {
     // mock when we are on dev (windows machine)
     createCronForCrawler = function() {
