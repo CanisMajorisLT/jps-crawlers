@@ -40,7 +40,7 @@ function createCrawlLog() {
         });
 
         log.save(function(error, doc){
-            logger.info('Successfully created crawl log', {doc: doc})
+            logger.info('Successfully created crawl log')
         })
     })
 }
