@@ -56,6 +56,7 @@ function performCrawl(config) {
 }
 
 function intervalCrawl() {
+    // TODO check last prsed time from db, and avoid running until its time again (during deployments)
     var HOUR = 1000 * 60 * 60;
     var config = getConfig();
     var nextCrawlIn = Math.max(1, parseInt(config.general.crawlInterval)) * HOUR;
