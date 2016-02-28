@@ -96,6 +96,7 @@ export function extractFrontInfo(html, task){
         }).get().slice()
     }
 
+
     const articles = validateParse(getArticles, [isNotEmptyArray])(page);
 
     return articles.map((elem, index)=> extractFrontInfoForOneAd(elem, index, task.pageNumber))

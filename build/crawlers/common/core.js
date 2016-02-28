@@ -183,7 +183,7 @@ function handleTaskFailureFactory(site) {
 
             queue.push(task);
         } else {
-            // log error so somethere
+            _logger2.default.error('Task failed too many times, all requeues exausted');
         }
     }
 

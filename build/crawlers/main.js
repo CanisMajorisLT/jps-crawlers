@@ -36,9 +36,10 @@ var crawl = exports.crawl = function () {
                         return Promise.all([onDoneWrapCVB, onDoneWrapCVO]);
 
                     case 12:
+                        _logger2.default.debug('Main crawler wrap, both crawler done promises resolved');
                         onDone();
 
-                    case 13:
+                    case 14:
                     case 'end':
                         return _context.stop();
                 }
@@ -58,6 +59,10 @@ var _main2 = _interopRequireDefault(_main);
 var _main3 = require('./cvo/main');
 
 var _main4 = _interopRequireDefault(_main3);
+
+var _logger = require('../../logging/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

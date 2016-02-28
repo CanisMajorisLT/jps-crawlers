@@ -1,5 +1,6 @@
 import CVB from './cvb/main'
 import CVO from './cvo/main'
+import logger from '../../logging/logger'
 
 function onDoneWrapper() {
     let res;
@@ -23,5 +24,6 @@ export async function crawl({
     CVO(taskSuccessHandler, config, resolveOnDoneCVO);
 
     await Promise.all([onDoneWrapCVB, onDoneWrapCVO]);
+    logger.debug('Main crawler wrap, both crawler done promises resolved');
     onDone()
 }

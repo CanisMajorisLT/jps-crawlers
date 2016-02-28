@@ -17,7 +17,10 @@ var parseCVO = function () {
                         worker = (0, _queueWorkerFactory.queueWorkerFactory)(adsParser, handleTaskFail.handler, handleTaskSuccess);
                         FrontInfoFetchingQueue = _async2.default.queue(worker, config.general.workers || DEFAULT_WORKERS_NUMBER);
 
-                        if (onDone !== undefined) FrontInfoFetchingQueue.drain = onDone;
+                        if (onDone !== undefined) FrontInfoFetchingQueue.drain = function () {
+                            _logger2.default.debug('CVO queue on done');
+                            onDone();
+                        };
 
                         handleTaskFail.setQueue(FrontInfoFetchingQueue); // so task can be requeued on fail
 

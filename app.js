@@ -17,6 +17,7 @@ function saveToDb(result, site, task) {
 
 function getCurrentCrawlErrors() {
     return new Promise(function(resolve, reject) {
+        return resolve(['TODO']);
         logger.query({
             from: crawlDate,
             until: new Date(),
@@ -42,6 +43,8 @@ function createCrawlLog() {
         log.save(function(error, doc){
             logger.info('Successfully created crawl log')
         })
+    }).catch(function(error){
+        logger.error('Failed to get getCurrentCrawlErrors', {error: error})
     })
 }
 
