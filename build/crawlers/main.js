@@ -11,7 +11,7 @@ var crawl = exports.crawl = function () {
     var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(_ref) {
         var taskSuccessHandler = _ref.taskSuccessHandler;
         var onDone = _ref.onDone;
-        var taskConfig = _ref.taskConfig;
+        var config = _ref.config;
 
         var _onDoneWrapper, _onDoneWrapper2, onDoneWrapCVB, resolveOnDoneCVB, _onDoneWrapper3, _onDoneWrapper4, onDoneWrapCVO, resolveOnDoneCVO;
 
@@ -29,8 +29,8 @@ var crawl = exports.crawl = function () {
                         resolveOnDoneCVO = _onDoneWrapper4[1];
 
 
-                        (0, _main2.default)(taskSuccessHandler, taskConfig, resolveOnDoneCVB);
-                        (0, _main4.default)(taskSuccessHandler, taskConfig, resolveOnDoneCVO);
+                        (0, _main2.default)(taskSuccessHandler, config, resolveOnDoneCVB);
+                        (0, _main4.default)(taskSuccessHandler, config, resolveOnDoneCVO);
 
                         _context.next = 12;
                         return Promise.all([onDoneWrapCVB, onDoneWrapCVO]);

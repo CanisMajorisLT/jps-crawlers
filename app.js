@@ -2,7 +2,7 @@ require('babel-polyfill');
 require('./build/db/db');
 var mongoose = require('mongoose');
 var crawlers = require('./build/crawlers/main');
-
+var config = require('./config');
 
 var CrawlLog = mongoose.model('CrawlLog');
 var ParsedAd = mongoose.model('ParsedAd');
@@ -35,7 +35,7 @@ function createCrawlLog() {
 function closeMongoConnection() {
     mongoose.disconnect();
 }
-
+console.log('Starting crawler with config', config);
 
 crawlers.crawl({
     taskSuccessHandler: saveToDb,
@@ -43,5 +43,6 @@ crawlers.crawl({
         createCrawlLog();
         Promise.all(savingToDbPromises)
             .then(closeMongoConnection)
-    }
+    },
+    config: config
 });

@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var parseCVO = function () {
-    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(taskSuccessHandler, taskConfig, onDone) {
+    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(taskSuccessHandler, config, onDone) {
         var handleTaskFail, handleTaskSuccess, adsParser, worker, FrontInfoFetchingQueue, pages, tasks;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
@@ -15,7 +15,7 @@ var parseCVO = function () {
                         handleTaskSuccess = (0, _core.handleTaskSuccessFactory)('CVO', taskSuccessHandler);
                         adsParser = (0, _core.parseFrontPageArticlesFactory)(FRONT_PAGE_URI, _parser.extractFrontInfo);
                         worker = (0, _queueWorkerFactory.queueWorkerFactory)(adsParser, handleTaskFail.handler, handleTaskSuccess);
-                        FrontInfoFetchingQueue = _async2.default.queue(worker, DEFAULT_WORKERS_NUMBER);
+                        FrontInfoFetchingQueue = _async2.default.queue(worker, config.general.workers || DEFAULT_WORKERS_NUMBER);
 
                         if (onDone !== undefined) FrontInfoFetchingQueue.drain = onDone;
 
@@ -29,7 +29,7 @@ var parseCVO = function () {
 
                         console.log('Page count: ' + pages);
 
-                        tasks = (0, _core.generateFrontInfoTasks)(pages, 1, taskConfig);
+                        tasks = (0, _core.generateFrontInfoTasks)(pages, 1, config.task);
 
 
                         FrontInfoFetchingQueue.push(tasks);

@@ -45,7 +45,7 @@ ParsedAdSchema.statics.insertDocs = function insertDocs(data, source, date) {
     });
 
     this.create(dataForInsert, (error, doc)=> {
-        console.log('successfully created parsedads', doc);
+        console.log('successfully created parsedads');
         error && console.log('Error  while creating new ParsedAd', error);
     })
 };

@@ -9,6 +9,7 @@
     "babel-polyfill": "^6.5.0",
     "body-parser": "^1.15.0",
     "cheerio": "^0.20.0",
+    "crontab": "^1.1.2",
     "express": "^4.13.4",
     "lodash": "^4.5.0",
     "mongoose": "^4.4.5",

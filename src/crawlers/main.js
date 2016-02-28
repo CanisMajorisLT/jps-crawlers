@@ -13,14 +13,14 @@ function onDoneWrapper() {
 export async function crawl({
     taskSuccessHandler: taskSuccessHandler,
     onDone: onDone,
-    taskConfig: taskConfig
+    config: config
     }) {
 
     const [onDoneWrapCVB, resolveOnDoneCVB] = onDoneWrapper();
     const [onDoneWrapCVO, resolveOnDoneCVO] = onDoneWrapper();
 
-    CVB(taskSuccessHandler, taskConfig, resolveOnDoneCVB);
-    CVO(taskSuccessHandler, taskConfig, resolveOnDoneCVO);
+    CVB(taskSuccessHandler, config, resolveOnDoneCVB);
+    CVO(taskSuccessHandler, config, resolveOnDoneCVO);
 
     await Promise.all([onDoneWrapCVB, onDoneWrapCVO]);
     onDone()

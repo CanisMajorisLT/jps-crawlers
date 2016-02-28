@@ -3,9 +3,9 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import fs from 'fs'
 import path from 'path'
+import crawlerCrontab from '../../../crontab'
 
-const configPath = path.join(__dirname, '../../..', 'jps-crawlerrc');
-
+const configPath = path.join(__dirname, '../../..', '.jps-crawlerrc');
 
 const app = express();
 app.use(express.static(path.join(__dirname, '../../..', 'public')));
@@ -22,8 +22,16 @@ app.get('/options', async function(req, res) {
 
 app.post('/options', async function(req, res) {
     try {
-        await writeConfig(req.body);
+        const oldConfig = await readConfig();
+        const newConfig = req.body;
+
+        await writeConfig(newConfig);
         res.json({success: true});
+
+        if (oldConfig.general.crawlInterval !== newConfig.general.crawlInterval) {
+            crawlerCrontab(newConfig)
+        }
+
     } catch (e) {
         res.json({success: false, error: e});
     }

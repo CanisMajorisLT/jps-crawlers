@@ -25,7 +25,12 @@ build/Release
 # https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules
 
-.idea
+.idea/workspace.xml
+.idea/dictionaries
+.idea/encodings.xml
+.idea/jsLinters/eslint.xml
+.idea/jsLinters/sonarIssues.xml
+.idea/copyright/
 
 gulpfile.js
 
