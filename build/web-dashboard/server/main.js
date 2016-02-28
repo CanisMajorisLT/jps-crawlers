@@ -67,43 +67,34 @@ app.get('/options', function () {
 
 app.post('/options', function () {
     var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(req, res) {
-        var oldConfig, newConfig;
+        var newConfig;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
             while (1) {
                 switch (_context2.prev = _context2.next) {
                     case 0:
                         _context2.prev = 0;
-                        _context2.next = 3;
-                        return readConfig();
-
-                    case 3:
-                        oldConfig = _context2.sent;
                         newConfig = req.body;
-                        _context2.next = 7;
+                        _context2.next = 4;
                         return writeConfig(newConfig);
 
-                    case 7:
+                    case 4:
                         res.json({ success: true });
 
-                        if (oldConfig.general.crawlInterval !== newConfig.general.crawlInterval) {
-                            (0, _crontab2.default)(newConfig);
-                        }
-
-                        _context2.next = 14;
+                        _context2.next = 10;
                         break;
 
-                    case 11:
-                        _context2.prev = 11;
+                    case 7:
+                        _context2.prev = 7;
                         _context2.t0 = _context2['catch'](0);
 
                         res.json({ success: false, error: _context2.t0 });
 
-                    case 14:
+                    case 10:
                     case 'end':
                         return _context2.stop();
                 }
             }
-        }, _callee2, this, [[0, 11]]);
+        }, _callee2, this, [[0, 7]]);
     }));
 
     return function (_x3, _x4) {

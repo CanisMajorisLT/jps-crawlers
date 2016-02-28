@@ -22,15 +22,9 @@ app.get('/options', async function(req, res) {
 
 app.post('/options', async function(req, res) {
     try {
-        const oldConfig = await readConfig();
         const newConfig = req.body;
-
         await writeConfig(newConfig);
         res.json({success: true});
-
-        if (oldConfig.general.crawlInterval !== newConfig.general.crawlInterval) {
-            crawlerCrontab(newConfig)
-        }
 
     } catch (e) {
         res.json({success: false, error: e});

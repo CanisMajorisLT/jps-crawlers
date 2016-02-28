@@ -1,3 +1,2 @@
-cron: while true; do sleep 10; done
-worker: node crontab.js
+worker: node app.js
 web: node server.js
