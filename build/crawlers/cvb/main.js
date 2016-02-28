@@ -27,7 +27,7 @@ var parseCVB = function () {
                     case 9:
                         pages = _context.sent;
 
-                        console.log('Page count: ' + pages);
+                        _logger2.default.info('Page count: ' + pages);
 
                         tasks = (0, _core.generateFrontInfoTasks)(pages, 1, config.task);
 
@@ -56,6 +56,10 @@ var _parser = require('./parser');
 var _queueWorkerFactory = require('../common/queueWorkerFactory');
 
 var _core = require('../common/core');
+
+var _logger = require('../../../logging/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

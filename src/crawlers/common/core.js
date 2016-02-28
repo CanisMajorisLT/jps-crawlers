@@ -2,6 +2,7 @@ import { getPageBody } from './scrape'
 import { default as async_ } from 'async'
 import { datePlusHours } from './utils'
 import { queueWorkerFactory } from './queueWorkerFactory'
+import logger from '../../../logging/logger'
 
 const DEFAULT_TASK_DELAY = 1000;
 const DEFAULT_TASK_REQUEUE = 5;
@@ -61,7 +62,7 @@ export async function getNumberOfFrontPages(uri, parser) {
         let html = await getPageBody(uri);
         return parseInt(parser(html));
     } catch (error) {
-        console.log('getNumberOfFrontPages threw error', error);
+        logger.error('getNumberOfFrontPages threw error', error);
     }
 }
 
@@ -84,7 +85,7 @@ export function parseFrontPageArticlesFactory(uri, parser) {
 
 export function handleTaskSuccessFactory(site, callback) {
     return function handleTaskSuccess({result: result, task: task}) {
-        console.log(`${site} Successfully finished parsing front page nr ${task.pageNumber}`);
+        logger.info(`${site} Successfully finished parsing front page nr ${task.pageNumber}`);
 
         // write to DB
         callback && callback(result, site, task)
@@ -98,7 +99,7 @@ export function handleTaskFailureFactory(site) {
     let queue;
 
     function handleTaskFailure({error: error, task: task}) {
-        console.error(`${site} Task failed`, error, task);
+        logger.error(`${site} Task failed`, {error, task});
         if (task.requeue && task.requeue > 0 && (task.timesRequeued < task.requeue)) {
             ++task.timesRequeued;
 

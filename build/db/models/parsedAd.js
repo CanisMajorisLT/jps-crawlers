@@ -6,6 +6,10 @@ var _mongoose2 = _interopRequireDefault(_mongoose);
 
 var _lodash = require('lodash');
 
+var _logger = require('../../../logging/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var MODEL_NAME = 'ParsedAd';
@@ -51,8 +55,8 @@ ParsedAdSchema.statics.insertDocs = function insertDocs(data, source, date) {
     });
 
     this.create(dataForInsert, function (error, doc) {
-        console.log('successfully created parsedads');
-        error && console.log('Error  while creating new ParsedAd', error);
+        _logger2.default.debug('successfully created parsedads');
+        error && _logger2.default.error('Error  while creating new ParsedAd', { error: error });
     });
 };
 

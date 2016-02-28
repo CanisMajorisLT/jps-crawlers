@@ -32,7 +32,7 @@ var getNumberOfFrontPages = exports.getNumberOfFrontPages = function () {
                         _context.prev = 7;
                         _context.t0 = _context['catch'](0);
 
-                        console.log('getNumberOfFrontPages threw error', _context.t0);
+                        _logger2.default.error('getNumberOfFrontPages threw error', _context.t0);
 
                     case 10:
                     case 'end':
@@ -70,6 +70,10 @@ var _async2 = _interopRequireDefault(_async);
 var _utils = require('./utils');
 
 var _queueWorkerFactory = require('./queueWorkerFactory');
+
+var _logger = require('../../../logging/logger');
+
+var _logger2 = _interopRequireDefault(_logger);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -159,7 +163,7 @@ function handleTaskSuccessFactory(site, callback) {
         var result = _ref.result;
         var task = _ref.task;
 
-        console.log(site + ' Successfully finished parsing front page nr ' + task.pageNumber);
+        _logger2.default.info(site + ' Successfully finished parsing front page nr ' + task.pageNumber);
 
         // write to DB
         callback && callback(result, site, task);
@@ -173,7 +177,7 @@ function handleTaskFailureFactory(site) {
         var error = _ref2.error;
         var task = _ref2.task;
 
-        console.error(site + ' Task failed', error, task);
+        _logger2.default.error(site + ' Task failed', { error: error, task: task });
         if (task.requeue && task.requeue > 0 && task.timesRequeued < task.requeue) {
             ++task.timesRequeued;
 

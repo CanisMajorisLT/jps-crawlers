@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import { isArray } from 'lodash'
+import logger from '../../../logging/logger'
 
 
 const MODEL_NAME = 'ParsedAd';
@@ -45,8 +46,8 @@ ParsedAdSchema.statics.insertDocs = function insertDocs(data, source, date) {
     });
 
     this.create(dataForInsert, (error, doc)=> {
-        console.log('successfully created parsedads');
-        error && console.log('Error  while creating new ParsedAd', error);
+        logger.debug('successfully created parsedads');
+        error && logger.error('Error  while creating new ParsedAd', {error});
     })
 };
 

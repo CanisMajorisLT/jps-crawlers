@@ -3,6 +3,7 @@ import { extractTotalPageCount, extractFrontInfo } from './parser'
 import { queueWorkerFactory } from '../common/queueWorkerFactory'
 import { generateFrontInfoTasks, getNumberOfFrontPages,
          parseFrontPageArticlesFactory, handleTaskSuccessFactory, handleTaskFailureFactory } from '../common/core'
+import logger from '../../../logging/logger'
 
 const FRONT_PAGE_URI = 'http://www.cvbankas.lt/?page=${page}';
 const DEFAULT_WORKERS_NUMBER = 1;
@@ -22,7 +23,7 @@ async function parseCVB(taskSuccessHandler, config, onDone) {
     handleTaskFail.setQueue(FrontInfoFetchingQueue); // so task can be requeued on fail
 
     const pages = await getNumberOfFrontPages(FRONT_PAGE_URI.replace('${page}', '1'), extractTotalPageCount);
-    console.log(`Page count: ${pages}`);
+    logger.info(`Page count: ${pages}`);
 
     const tasks = generateFrontInfoTasks(pages, 1, config.task);
 

@@ -3,6 +3,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import fs from 'fs'
 import path from 'path'
+import logger from '../../../logging/logger'
 
 const configPath = path.join(__dirname, '../../..', '.jps-crawlerrc');
 
@@ -31,8 +32,15 @@ app.post('/options', async function(req, res) {
 
 });
 
+app.get('/info', async function(req, res){
+    // error log,
+    // when is next crawl
+    // totals crawls
+    // total ad records
+});
+
 app.listen(process.env.PORT || 3000);
-console.log('Listening on port:', process.env.PORT || 3000);
+logger.info('Listening on port:', process.env.PORT || 3000);
 
 
 function readConfig() {
