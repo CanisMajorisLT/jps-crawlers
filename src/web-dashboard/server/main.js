@@ -37,9 +37,10 @@ app.get('/info', async function(req, res){
     // when is next crawl
     // totals crawls
     // total ad records
+    // # of ads parsed in last 10 crawls [each]
 });
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 30E00);
 logger.info('Listening on port:', process.env.PORT || 3000);
 
 

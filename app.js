@@ -9,7 +9,7 @@ var CrawlLog = mongoose.model('CrawlLog');
 var ParsedAd = mongoose.model('ParsedAd');
 
 // use same date entry for all docs saved on this crawl
-var crawlDate = new Date();
+var crawlDate;
 
 function saveToDb(result, site, task) {
     ParsedAd.insertDocs(result, site, crawlDate);
@@ -56,6 +56,7 @@ function createCrawlLog() {
 }
 
 function performCrawl(config) {
+    crawlDate = new Date();
     crawlers.crawl({
         taskSuccessHandler: saveToDb,
         onDone: function() {

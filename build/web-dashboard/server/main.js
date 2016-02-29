@@ -124,7 +124,8 @@ app.get('/info', function () {
 // when is next crawl
 // totals crawls
 // total ad records
-app.listen(process.env.PORT || 3000);
+// # of ads parsed in last 10 crawls [each]
+app.listen(process.env.PORT || 30E00);
 _logger2.default.info('Listening on port:', process.env.PORT || 3000);
 
 function readConfig() {
