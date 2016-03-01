@@ -37,7 +37,7 @@ app.get('/info', async function(req, res){
     // when is next crawl
     // totals crawls
     // total ad records
-    // # of ads parsed in last 10 crawls [each]
+    // # of ads parsed in last 10 crawls [each], some examples of last ads..
 });
 
 app.listen(process.env.PORT || 30E00);
