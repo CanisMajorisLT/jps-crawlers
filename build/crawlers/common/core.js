@@ -155,9 +155,11 @@ function generateFrontInfoTasks(n) {
             }, _callee2, this);
         }));
 
-        return function parseFrontPage(_x5) {
+        function parseFrontPage(_x5) {
             return ref.apply(this, arguments);
-        };
+        }
+
+        return parseFrontPage;
     }();
 }
 
@@ -174,7 +176,7 @@ function handleTaskSuccessFactory(site, callback) {
 }
 
 function handleTaskFailureFactory(site) {
-    var queue = undefined;
+    var queue = void 0;
 
     function handleTaskFailure(_ref2) {
         var error = _ref2.error;

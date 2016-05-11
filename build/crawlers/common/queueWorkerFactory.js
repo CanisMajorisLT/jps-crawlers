@@ -46,7 +46,7 @@ function queueWorkerFactory(taskConsumer, taskFailureCallback, taskSuccessCallba
                 while (1) {
                     switch (_context.prev = _context.next) {
                         case 0:
-                            result = undefined;
+                            result = void 0;
                             _context.prev = 1;
 
                             if (!task.delay) {
@@ -112,9 +112,11 @@ function queueWorkerFactory(taskConsumer, taskFailureCallback, taskSuccessCallba
             }, _callee, this, [[1, 17, 20, 23]]);
         }));
 
-        return function worker(_x2, _x3) {
+        function worker(_x2, _x3) {
             return ref.apply(this, arguments);
-        };
+        }
+
+        return worker;
     }();
 }
 //# sourceMappingURL=queueWorkerFactory.js.map

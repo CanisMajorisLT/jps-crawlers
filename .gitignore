@@ -31,6 +31,3 @@ node_modules
 .idea/jsLinters/eslint.xml
 .idea/jsLinters/sonarIssues.xml
 .idea/copyright/
-
-gulpfile.js
-

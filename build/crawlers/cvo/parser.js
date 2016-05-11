@@ -53,7 +53,7 @@ function extractFrontInfoForOneAd(element, index, pageNumber) {
     }
 
     function getCity(ad) {
-        var city = undefined;
+        var city = void 0;
 
         var matchedElement = ad('a[itemprop=address]');
 
