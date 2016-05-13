@@ -1,10 +1,8 @@
 
 
 export default {
-        templateUrl: 'config-form/configForm.html',
+        templateUrl: 'client/config-form/configForm.html',
         controller: function($scope, $http) {
-
-
 
             this.handleSave = ()=> {
                 console.log('saving ');
@@ -24,6 +22,15 @@ export default {
                 url: '/options'
             }).then((response)=> {
                 this.data = response.data;
+            }, (error)=> {
+                console.log('error', error);
+            });
+
+            $http({
+                method: 'GET',
+                url: '/info'
+            }).then((response)=> {
+                console.log(response.data);
             }, (error)=> {
                 console.log('error', error);
             })

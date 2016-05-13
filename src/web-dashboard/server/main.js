@@ -1,9 +1,14 @@
 require('babel-polyfill');
+require('../../../build/db/db');
+import mongoose from 'mongoose';
 import express from 'express'
 import bodyParser from 'body-parser'
 import fs from 'fs'
 import path from 'path'
 import logger from '../../../logging/logger'
+
+var CrawlLog = mongoose.model('CrawlLog');
+var ParsedAd = mongoose.model('ParsedAd');
 
 const configPath = path.join(__dirname, '../../..', '.jps-crawlerrc');
 
@@ -11,7 +16,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, '../../..', 'public')));
 app.use(bodyParser());
 
-app.get('/', function(req, res){
+app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, '../../..', 'public/index.html'))
 });
 
@@ -32,15 +37,24 @@ app.post('/options', async function(req, res) {
 
 });
 
-app.get('/info', async function(req, res){
+app.get('/info', async function(req, res) {
+
+    try {
+        const crawlLogsData = await CrawlLog.find().sort('-crawlDate').exec();
+        res.json({success: true, crawlLogs: crawlLogsData});
+    } catch (e) {
+        res.json({success: false, error: e});
+
+    }
     // error log,
     // when is next crawl
+    // when was last crawl + short summary of how many parsed, errors
     // totals crawls
     // total ad records
     // # of ads parsed in last 10 crawls [each], some examples of last ads..
 });
 
-app.listen(process.env.PORT || 30E00);
+app.listen(process.env.PORT || 3000);
 logger.info('Listening on port:', process.env.PORT || 3000);
 
 
