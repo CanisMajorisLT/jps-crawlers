@@ -24,7 +24,6 @@ gulp.task('build-web-app', function() {
         .pipe(gulp.dest('public'))
 });
 
-
 gulp.task('build-src', function() {
     return gulp.src(['./src/**/*.js', '!./src/web-dashboard/client/**/*.js'])
         .pipe(sourcemaps.init())
@@ -33,4 +32,12 @@ gulp.task('build-src', function() {
         .pipe(gulp.dest("build"));
 });
 
+gulp.task('watch', function() {
+    gulp.watch('./src/web-dashboard/client/**/*', ['build-web-app', 'build-templates']);
+    gulp.watch(['./src/**/*.js', '!./src/web-dashboard/client/**/*.js'], ['build-src'])
+});
+
+
+gulp.task('default', ['watch']);
+gulp.task('build', ['build-web-app', 'build-templates', 'build-src']);
 
