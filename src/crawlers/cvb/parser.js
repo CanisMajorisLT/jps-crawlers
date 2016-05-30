@@ -9,6 +9,7 @@ import { validateParse, isNotEmptyString, isNumber, isNotEmptyArray } from '../c
  * @private
  */
 function extractTotalPageCount_(html) {
+    return 3
     var page = $.load(html);
 
     const pagesCount = page('.pages_ul_inner').children().last().text();

@@ -50,13 +50,17 @@
 	
 	var _angular2 = _interopRequireDefault(_angular);
 	
-	var _formComponent = __webpack_require__(3);
+	var _configFormComponent = __webpack_require__(3);
 	
-	var _formComponent2 = _interopRequireDefault(_formComponent);
+	var _configFormComponent2 = _interopRequireDefault(_configFormComponent);
+	
+	var _lastCrawlSummaryComponent = __webpack_require__(4);
+	
+	var _lastCrawlSummaryComponent2 = _interopRequireDefault(_lastCrawlSummaryComponent);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('app', ['templates']).component('configForm', _formComponent2.default);
+	_angular2.default.module('app', ['templates']).component('configForm', _configFormComponent2.default).component('lastCrawlSummary', _lastCrawlSummaryComponent2.default);
 
 /***/ },
 /* 1 */
@@ -30949,8 +30953,8 @@
 	    value: true
 	});
 	exports.default = {
-	    templateUrl: 'config-form/configForm.html',
-	    controller: function controller($scope, $http) {
+	    templateUrl: 'client/config-form/config-form.html',
+	    controller: function controller($http) {
 	        var _this = this;
 	
 	        this.handleSave = function () {
@@ -30970,6 +30974,38 @@
 	            url: '/options'
 	        }).then(function (response) {
 	            _this.data = response.data;
+	        }, function (error) {
+	            console.log('error', error);
+	        });
+	    }
+	};
+
+/***/ },
+/* 4 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+	    templateUrl: 'client/last-crawl-summary/last-crawl-summary.html',
+	    controller: function controller($http) {
+	        var ctrl = this;
+	        function prepareDataForDisplay(lastCrawl) {
+	            ctrl.lastCrawlDate = moment(lastCrawl.crawlDate).format('YYYY-DD-MM hh:ss:mm');
+	            ctrl.lastCrawlDuration = lastCrawl.duration / 1000;
+	            ctrl.lastCrawlSources = lastCrawl.sources.join(', ');
+	            ctrl.lastCrawlErrors = lastCrawl.crawlErrors.length;
+	        }
+	
+	        $http({
+	            method: 'GET',
+	            url: '/info'
+	        }).then(function (response) {
+	            console.log(response);
+	            prepareDataForDisplay(response.data.crawlLogs[0]);
 	        }, function (error) {
 	            console.log('error', error);
 	        });

@@ -1,5 +1,9 @@
 'use strict';
 
+var _mongoose = require('mongoose');
+
+var _mongoose2 = _interopRequireDefault(_mongoose);
+
 var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
@@ -25,7 +29,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step("next", value); }, function (err) { return step("throw", err); }); } } return step("next"); }); }; }
 
 require('babel-polyfill');
+require('../../../build/db/db');
 
+
+var CrawlLog = _mongoose2.default.model('CrawlLog');
+var ParsedAd = _mongoose2.default.model('ParsedAd');
 
 var configPath = _path2.default.join(__dirname, '../../..', '.jps-crawlerrc');
 
@@ -104,15 +112,34 @@ app.post('/options', function () {
 
 app.get('/info', function () {
     var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(req, res) {
+        var crawlLogsData;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
             while (1) {
                 switch (_context3.prev = _context3.next) {
                     case 0:
+                        _context3.prev = 0;
+                        _context3.next = 3;
+                        return CrawlLog.find().sort('-crawlDate').exec();
+
+                    case 3:
+                        crawlLogsData = _context3.sent;
+
+                        res.json({ success: true, crawlLogs: crawlLogsData });
+                        _context3.next = 10;
+                        break;
+
+                    case 7:
+                        _context3.prev = 7;
+                        _context3.t0 = _context3['catch'](0);
+
+                        res.json({ success: false, error: _context3.t0 });
+
+                    case 10:
                     case 'end':
                         return _context3.stop();
                 }
             }
-        }, _callee3, this);
+        }, _callee3, this, [[0, 7]]);
     }));
 
     return function (_x5, _x6) {
@@ -122,10 +149,11 @@ app.get('/info', function () {
 
 // error log,
 // when is next crawl
+// when was last crawl + short summary of how many parsed, errors
 // totals crawls
 // total ad records
 // # of ads parsed in last 10 crawls [each], some examples of last ads..
-app.listen(process.env.PORT || 30E00);
+app.listen(process.env.PORT || 3000);
 _logger2.default.info('Listening on port:', process.env.PORT || 3000);
 
 function readConfig() {

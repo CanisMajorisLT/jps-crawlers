@@ -18,7 +18,7 @@ function saveToDb(result, site, task) {
 function getCurrentCrawlErrors() {
     return new Promise(function(resolve, reject) {
         logger.query({
-            from: crawlDate,
+            from: crawlDate, // TODO loggly ignores from, until (or maybe converts to some time or something)
             until: new Date(),
             start: 0,
             query: 'error',
