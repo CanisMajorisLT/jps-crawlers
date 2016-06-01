@@ -58,9 +58,25 @@
 	
 	var _lastCrawlSummaryComponent2 = _interopRequireDefault(_lastCrawlSummaryComponent);
 	
+	var _errorViewerComponent = __webpack_require__(5);
+	
+	var _errorViewerComponent2 = _interopRequireDefault(_errorViewerComponent);
+	
+	var _singleErrorViewerComponent = __webpack_require__(6);
+	
+	var _singleErrorViewerComponent2 = _interopRequireDefault(_singleErrorViewerComponent);
+	
+	var _parseResultViewerComponent = __webpack_require__(7);
+	
+	var _parseResultViewerComponent2 = _interopRequireDefault(_parseResultViewerComponent);
+	
+	var _singleParseResultViewerComponent = __webpack_require__(8);
+	
+	var _singleParseResultViewerComponent2 = _interopRequireDefault(_singleParseResultViewerComponent);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('app', ['templates']).component('configForm', _configFormComponent2.default).component('lastCrawlSummary', _lastCrawlSummaryComponent2.default);
+	_angular2.default.module('app', ['templates']).component('configForm', _configFormComponent2.default).component('lastCrawlSummary', _lastCrawlSummaryComponent2.default).component('errorViewer', _errorViewerComponent2.default).component('singleErrorViewer', _singleErrorViewerComponent2.default).component('parseResultViewer', _parseResultViewerComponent2.default).component('singleParseResultViewer', _singleParseResultViewerComponent2.default);
 
 /***/ },
 /* 1 */
@@ -31009,6 +31025,97 @@
 	        }, function (error) {
 	            console.log('error', error);
 	        });
+	    }
+	};
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+	    templateUrl: 'client/error-viewer/error-viewer.html',
+	    controller: function controller($http) {
+	        var ctrl = this;
+	        $http({
+	            method: 'GET',
+	            url: '/info'
+	        }).then(function (response) {
+	            ctrl.crawlErrors = response.data.crawlLogs.reduce(function (allErrors, log) {
+	                return allErrors.concat(log.crawlErrors);
+	            }, []);
+	        }, function (error) {
+	            console.log('error', error);
+	        });
+	    }
+	};
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+	    bindings: {
+	        errorData: '<'
+	    },
+	    templateUrl: 'client/error-viewer/single-error-viewer.html',
+	    controller: function controller() {
+	        var ctrl = this;
+	        ctrl.formattedTimestamp = moment(ctrl.errorData.timestamp).format('YYYY-DD-MM hh:ss:mm');
+	    }
+	};
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+	    templateUrl: 'client/parse-results-viewer/parse-result-viewer.html',
+	    controller: function controller($http) {
+	        var ctrl = this;
+	
+	        $http({
+	            method: 'GET',
+	            url: '/entries'
+	        }).then(function (response) {
+	            ctrl.parsedAds = response.data.parsedAds;
+	        }, function (error) {
+	            console.log('error', error);
+	        });
+	    }
+	};
+
+/***/ },
+/* 8 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = {
+	    bindings: {
+	        parseData: '<'
+	    },
+	    templateUrl: 'client/parse-results-viewer/single-parse-result-viewer.html',
+	    controller: function controller() {
+	        var ctrl = this;
+	        ctrl.formattedDate = moment(ctrl.parseData.meta.parseDate).format('YYYY-DD-MM hh:ss:mm');
 	    }
 	};
 

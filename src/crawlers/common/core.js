@@ -107,7 +107,7 @@ export function handleTaskFailureFactory(site) {
 
             queue.push(task)
         } else {
-            logger.error('Task failed too many times, all requeues exausted');
+            logger.debug('Task failed too many times, all requeues exausted');
         }
     }
 

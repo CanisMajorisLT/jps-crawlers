@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Latest parse entries</h3>
+    </div>
+    <div style="max-height: 500px; overflow-y: scroll" class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <span style="display: flex; justify-content: center" class="col-md-1"><h4>Source</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-2"><h4>Date</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-2"><h4>Title</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-1"><h4>City</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-2"><h4>Company</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-2"><h4>Company 2</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-2"><h4>Url</h4></span>
+                </div>
+            </li>
+            <single-parse-result-viewer data-parse-data="data" ng-repeat="data in $ctrl.parsedAds"></single-parse-result-viewer>
+        </ul>
+    </div>
+</div>
+

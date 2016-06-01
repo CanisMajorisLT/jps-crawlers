@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Latest errors</h3>
+    </div>
+    <div style="max-height: 500px; overflow-y: scroll" class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <span style="display: flex; justify-content: center" class="col-md-2"><h4>Message</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-2"><h4>Date</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-1"><h4>Error</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-1"><h4>Parser</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-2"><h4>Validator</h4></span>
+                    <span style="display: flex; justify-content: center" class="col-md-4"><h4>Element</h4></span>
+                </div>
+            </li>
+            <single-error-viewer data-error-data="error" ng-repeat="error in $ctrl.crawlErrors"></single-error-viewer>
+        </ul>
+    </div>
+</div>
+

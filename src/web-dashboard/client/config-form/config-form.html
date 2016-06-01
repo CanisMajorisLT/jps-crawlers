@@ -1,67 +1,80 @@
-<div class="row">
-    <form name="options" class="form-horizontal">
-        <div class="col-md-6">
-            <h3>General options</h3>
-
-            <div class="form-group">
-                <label for="interval" class="col-md-6 control-label">Crawl interval</label>
-                <div class="input-group col-md-6">
-                        <input ng-model="$ctrl.data.general.crawlInterval" type="number" class="form-control" id="interval" required>
-                        <div class="input-group-addon">hours</div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="workers" class="col-md-6 control-label">Workers</label>
-                <div class="input-group col-md-6">
-                    <input ng-model="$ctrl.data.general.workers" type="number" class="form-control" id="workers" required>
-                </div>
-            </div>
-
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    <h3>Options</h3>
+                </a>
+            </h4>
         </div>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <form name="options" class="form-horizontal">
+                        <div class="col-md-6">
+                            <h4>General</h4>
+                            <div class="form-group">
+                                <label for="interval" class="col-md-6 control-label">Crawl interval</label>
+                                <div class="input-group col-md-6">
+                                    <input ng-model="$ctrl.data.general.crawlInterval" type="number" class="form-control" id="interval" required>
+                                    <div class="input-group-addon">hours</div>
+                                </div>
+                            </div>
 
-        <div class="col-md-6">
-            <h3>Task options</h3>
-            <div class="form-group">
-                <label for="default_task_delay" class="col-md-6 control-label">DEFAULT_TASK_DELAY</label>
-                <div class="input-group col-md-6">
-                    <input ng-model="$ctrl.data.task.DEFAULT_TASK_DELAY" type="number" class="form-control" id="default_task_delay" required>
-                    <div class="input-group-addon">ms</div>
-                </div>
+                            <div class="form-group">
+                                <label for="workers" class="col-md-6 control-label">Workers</label>
+                                <div class="input-group col-md-6">
+                                    <input ng-model="$ctrl.data.general.workers" type="number" class="form-control" id="workers" required>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <h4>Task</h4>
+                            <div class="form-group">
+                                <label for="default_task_delay" class="col-md-6 control-label">DEFAULT_TASK_DELAY</label>
+                                <div class="input-group col-md-6">
+                                    <input ng-model="$ctrl.data.task.DEFAULT_TASK_DELAY" type="number" class="form-control" id="default_task_delay" required>
+                                    <div class="input-group-addon">ms</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="default_task_requeue" class="col-md-6 control-label">DEFAULT_TASK_REQUEUE</label>
+                                <div class="input-group col-md-6">
+                                    <input ng-model="$ctrl.data.task.DEFAULT_TASK_REQUEUE" type="number" class="form-control" id="default_task_requeue" required>
+                                    <div class="input-group-addon">times</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="default_task_retry" class="col-md-6 control-label">DEFAULT_TASK_RETRY</label>
+                                <div class="input-group col-md-6">
+                                    <input ng-model="$ctrl.data.task.DEFAULT_TASK_RETRY" type="number" class="form-control" id="default_task_retry" required>
+                                    <div class="input-group-addon">times</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="default_task_retry_interval" class="col-md-6 control-label">DEFAULT_TASK_RETRY_INTERVAL</label>
+                                <div class="input-group col-md-6">
+                                    <input ng-model="$ctrl.data.task.DEFAULT_TASK_RETRY_INTERVAL" type="number" class="form-control" id="default_task_retry_interval" required>
+                                    <div class="input-group-addon">ms</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <span class="col-md-6 control-label"></span>
+                                <div class="input-group col-md-6">
+                                    <button ng-disabled="options.$error.required" style="float: right" class="btn btn-success" ng-click="$ctrl.handleSave()" type="submit">Save changes</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </form>
             </div>
-
-            <div class="form-group">
-                <label for="default_task_requeue" class="col-md-6 control-label">DEFAULT_TASK_REQUEUE</label>
-                <div class="input-group col-md-6">
-                    <input ng-model="$ctrl.data.task.DEFAULT_TASK_REQUEUE" type="number" class="form-control" id="default_task_requeue" required>
-                    <div class="input-group-addon">times</div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="default_task_retry" class="col-md-6 control-label">DEFAULT_TASK_RETRY</label>
-                <div class="input-group col-md-6">
-                    <input ng-model="$ctrl.data.task.DEFAULT_TASK_RETRY" type="number" class="form-control" id="default_task_retry" required>
-                    <div class="input-group-addon">times</div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label for="default_task_retry_interval" class="col-md-6 control-label">DEFAULT_TASK_RETRY_INTERVAL</label>
-                <div class="input-group col-md-6">
-                    <input ng-model="$ctrl.data.task.DEFAULT_TASK_RETRY_INTERVAL" type="number" class="form-control" id="default_task_retry_interval" required>
-                    <div class="input-group-addon">ms</div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <span class="col-md-6 control-label"></span>
-                <div class="input-group col-md-6">
-                    <button ng-disabled="options.$error.required" style="float: right" class="btn btn-success" ng-click="$ctrl.handleSave()" type="submit">Save changes</button>
-                </div>
-            </div>
-
-
         </div>
-    </form>
+    </div>
 </div>
+

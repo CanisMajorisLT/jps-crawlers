@@ -1,0 +1,13 @@
+<li class="list-group-item">
+    <div class="row">
+        <span  class="col-md-1">{{$ctrl.parseData.source}}</span>
+        <span  class="col-md-2">{{$ctrl.formattedDate}}</span>
+        <span  class="col-md-2">{{$ctrl.parseData.parsedData.title}}</span>
+        <span  class="col-md-1">{{$ctrl.parseData.parsedData.city}}</span>
+        <span  class="col-md-2">{{$ctrl.parseData.parsedData.company}}</span>
+        <span  class="col-md-2">{{$ctrl.parseData.parsedData.companySecondary}}</span>
+        <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap" class="col-md-2">
+            <a target="_blank" href="{{$ctrl.parseData.parsedData.uri}}">{{$ctrl.parseData.parsedData.uri}}</a>
+        </span>
+    </div>
+</li>

@@ -1,0 +1,10 @@
+<li class="list-group-item">
+    <div class="row">
+        <span class="col-md-2">{{$ctrl.errorData.message}}</span>
+        <span ng-if="$ctrl.errorData.error" class="col-md-2">{{$ctrl.formattedTimestamp}}</span>
+        <span ng-if="$ctrl.errorData.error" class="col-md-1">{{$ctrl.errorData.error.name}}</span>
+        <span ng-if="$ctrl.errorData.error" class="col-md-1">{{$ctrl.errorData.error.metaData.parserName}}</span>
+        <span ng-if="$ctrl.errorData.error" class="col-md-1">{{$ctrl.errorData.error.metaData.validator}}</span>
+        <span ng-if="$ctrl.errorData.error" class="col-md-5">{{$ctrl.errorData.error.metaData.element}}</span>
+    </div>
+</li>

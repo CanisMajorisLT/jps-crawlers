@@ -119,7 +119,7 @@ app.get('/info', function () {
                     case 0:
                         _context3.prev = 0;
                         _context3.next = 3;
-                        return CrawlLog.find().sort('-crawlDate').exec();
+                        return CrawlLog.find().sort('-crawlDate').limit(100).exec();
 
                     case 3:
                         crawlLogsData = _context3.sent;
@@ -153,6 +153,43 @@ app.get('/info', function () {
 // totals crawls
 // total ad records
 // # of ads parsed in last 10 crawls [each], some examples of last ads..
+app.get('/entries', function () {
+    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee4(req, res) {
+        var parsedAdsData;
+        return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            while (1) {
+                switch (_context4.prev = _context4.next) {
+                    case 0:
+                        _context4.prev = 0;
+                        _context4.next = 3;
+                        return ParsedAd.find().sort({ $natural: -1 }).limit(100);
+
+                    case 3:
+                        parsedAdsData = _context4.sent;
+
+                        res.json({ success: true, parsedAds: parsedAdsData });
+                        _context4.next = 10;
+                        break;
+
+                    case 7:
+                        _context4.prev = 7;
+                        _context4.t0 = _context4['catch'](0);
+
+                        res.json({ success: false, error: _context4.t0 });
+
+                    case 10:
+                    case 'end':
+                        return _context4.stop();
+                }
+            }
+        }, _callee4, this, [[0, 7]]);
+    }));
+
+    return function (_x7, _x8) {
+        return ref.apply(this, arguments);
+    };
+}());
+
 app.listen(process.env.PORT || 3000);
 _logger2.default.info('Listening on port:', process.env.PORT || 3000);
 
