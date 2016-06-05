@@ -1,17 +1,12 @@
 export default {
     templateUrl: 'client/error-viewer/error-viewer.html',
-    controller: function($http) {
+    controller: function(dataFetchService) {
         const ctrl = this;
-        $http({
-            method: 'GET',
-            url: '/info'
-        }).then((response)=> {
-            ctrl.crawlErrors = response.data.crawlLogs
+        dataFetchService.getUrl('/info').then((responseData)=> {
+            ctrl.crawlErrors = responseData.crawlLogs
                 .reduce((allErrors, log)=> {
                     return allErrors.concat(log.crawlErrors);
                 }, [])
-        }, (error)=> {
-            console.log('error', error);
-        })
+        });
     }
 }

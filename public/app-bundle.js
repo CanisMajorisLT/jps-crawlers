@@ -74,9 +74,15 @@
 	
 	var _singleParseResultViewerComponent2 = _interopRequireDefault(_singleParseResultViewerComponent);
 	
+	var _dataFetchService = __webpack_require__(9);
+	
+	var _dataFetchService2 = _interopRequireDefault(_dataFetchService);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	_angular2.default.module('app', ['templates']).component('configForm', _configFormComponent2.default).component('lastCrawlSummary', _lastCrawlSummaryComponent2.default).component('errorViewer', _errorViewerComponent2.default).component('singleErrorViewer', _singleErrorViewerComponent2.default).component('parseResultViewer', _parseResultViewerComponent2.default).component('singleParseResultViewer', _singleParseResultViewerComponent2.default);
+	// TODO refactor: wrapping component for group (multi transclude head, body), http fetch services
+	
+	_angular2.default.module('app', ['templates']).component('configForm', _configFormComponent2.default).component('lastCrawlSummary', _lastCrawlSummaryComponent2.default).component('errorViewer', _errorViewerComponent2.default).component('singleErrorViewer', _singleErrorViewerComponent2.default).component('parseResultViewer', _parseResultViewerComponent2.default).component('singleParseResultViewer', _singleParseResultViewerComponent2.default).service('dataFetchService', _dataFetchService2.default);
 
 /***/ },
 /* 1 */
@@ -30970,28 +30976,21 @@
 	});
 	exports.default = {
 	    templateUrl: 'client/config-form/config-form.html',
-	    controller: function controller($http) {
+	    controller: function controller($http, dataFetchService) {
 	        var _this = this;
 	
 	        this.handleSave = function () {
 	            console.log('saving ');
 	            console.log(_this.data);
 	            $http.post('/options', JSON.stringify(_this.data)).then(function (response) {
-	                // koks nors servisas
 	                console.log('Saved successfully', response);
 	            }, function (error) {
 	                console.error('Failed to save', error);
-	                // koks nors servisas
 	            });
 	        };
 	
-	        $http({
-	            method: 'GET',
-	            url: '/options'
-	        }).then(function (response) {
-	            _this.data = response.data;
-	        }, function (error) {
-	            console.log('error', error);
+	        dataFetchService.getUrl('/options').then(function (responseData) {
+	            _this.data = responseData;
 	        });
 	    }
 	};
@@ -31007,23 +31006,29 @@
 	});
 	exports.default = {
 	    templateUrl: 'client/last-crawl-summary/last-crawl-summary.html',
-	    controller: function controller($http) {
+	    controller: function controller(dataFetchService, $q) {
 	        var ctrl = this;
-	        function prepareDataForDisplay(lastCrawl) {
-	            ctrl.lastCrawlDate = moment(lastCrawl.crawlDate).format('YYYY-DD-MM hh:ss:mm');
+	        function prepareDataForDisplay(responseData) {
+	            var lastCrawl = responseData.crawlLogs[0];
+	            var parsedAdsNumber = responseData.parsedAdsNumber;
+	            ctrl.lastCrawlDate = moment(lastCrawl.crawlDate).format('YYYY-MM-DD HH:mm:ss');
 	            ctrl.lastCrawlDuration = lastCrawl.duration / 1000;
 	            ctrl.lastCrawlSources = lastCrawl.sources.join(', ');
+	            ctrl.parsedAdsNumber = parsedAdsNumber;
 	            ctrl.lastCrawlErrors = lastCrawl.crawlErrors.length;
 	        }
 	
-	        $http({
-	            method: 'GET',
-	            url: '/info'
-	        }).then(function (response) {
-	            console.log(response);
-	            prepareDataForDisplay(response.data.crawlLogs[0]);
-	        }, function (error) {
-	            console.log('error', error);
+	        $q.all([dataFetchService.getUrl('/options'), dataFetchService.getUrl('/info')]).then(function (bothResults) {
+	            var optionsData = bothResults[0];
+	            var infoData = bothResults[1];
+	            prepareDataForDisplay(infoData);
+	
+	            var currentTime = moment();
+	            var lastCrawlTime = moment(infoData.crawlLogs[0].crawlDate);
+	            var crawlInterval = optionsData.general.crawlInterval;
+	            lastCrawlTime.add(crawlInterval, 'hours');
+	
+	            ctrl.nextCrawlIn = lastCrawlTime.diff(currentTime, 'minutes');
 	        });
 	    }
 	};
@@ -31039,17 +31044,12 @@
 	});
 	exports.default = {
 	    templateUrl: 'client/error-viewer/error-viewer.html',
-	    controller: function controller($http) {
+	    controller: function controller(dataFetchService) {
 	        var ctrl = this;
-	        $http({
-	            method: 'GET',
-	            url: '/info'
-	        }).then(function (response) {
-	            ctrl.crawlErrors = response.data.crawlLogs.reduce(function (allErrors, log) {
+	        dataFetchService.getUrl('/info').then(function (responseData) {
+	            ctrl.crawlErrors = responseData.crawlLogs.reduce(function (allErrors, log) {
 	                return allErrors.concat(log.crawlErrors);
 	            }, []);
-	        }, function (error) {
-	            console.log('error', error);
 	        });
 	    }
 	};
@@ -31070,7 +31070,7 @@
 	    templateUrl: 'client/error-viewer/single-error-viewer.html',
 	    controller: function controller() {
 	        var ctrl = this;
-	        ctrl.formattedTimestamp = moment(ctrl.errorData.timestamp).format('YYYY-DD-MM hh:ss:mm');
+	        ctrl.formattedTimestamp = moment(ctrl.errorData.timestamp).format('YYYY-MM-DD HH:mm:ss');
 	    }
 	};
 
@@ -31085,16 +31085,11 @@
 	});
 	exports.default = {
 	    templateUrl: 'client/parse-results-viewer/parse-result-viewer.html',
-	    controller: function controller($http) {
+	    controller: function controller(dataFetchService) {
 	        var ctrl = this;
 	
-	        $http({
-	            method: 'GET',
-	            url: '/entries'
-	        }).then(function (response) {
-	            ctrl.parsedAds = response.data.parsedAds;
-	        }, function (error) {
-	            console.log('error', error);
+	        dataFetchService.getUrl('/entries').then(function (responseData) {
+	            ctrl.parsedAds = responseData.parsedAds;
 	        });
 	    }
 	};
@@ -31115,8 +31110,49 @@
 	    templateUrl: 'client/parse-results-viewer/single-parse-result-viewer.html',
 	    controller: function controller() {
 	        var ctrl = this;
-	        ctrl.formattedDate = moment(ctrl.parseData.meta.parseDate).format('YYYY-DD-MM hh:ss:mm');
+	        ctrl.formattedDate = moment(ctrl.parseData.meta.parseDate).format('YYYY-MM-DD HH:mm:ss');
 	    }
+	};
+
+/***/ },
+/* 9 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	exports.default = function ($http, $q) {
+	    var cache = {};
+	
+	    function httpGETandCache(url) {
+	        var restPromise = $http({
+	            method: 'GET',
+	            url: url
+	        }).then(function (response) {
+	            console.log(url + ' success:', response.data);
+	            return $q.resolve(response.data);
+	        }, function (error) {
+	            console.log(url + ' error:', error);
+	        });
+	
+	        cache[url] = restPromise;
+	        return restPromise;
+	    }
+	
+	    function getUrl(url) {
+	        if (cache[url]) {
+	            return cache[url];
+	        } else {
+	            return httpGETandCache(url);
+	        }
+	    }
+	
+	    return {
+	        getUrl: getUrl
+	    };
 	};
 
 /***/ }

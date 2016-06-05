@@ -112,34 +112,39 @@ app.post('/options', function () {
 
 app.get('/info', function () {
     var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(req, res) {
-        var crawlLogsData;
+        var crawlLogsData, parsedAdsNumber;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
             while (1) {
                 switch (_context3.prev = _context3.next) {
                     case 0:
                         _context3.prev = 0;
                         _context3.next = 3;
-                        return CrawlLog.find().sort('-crawlDate').limit(100).exec();
+                        return CrawlLog.find().sort('-crawlDate').limit(50).exec();
 
                     case 3:
                         crawlLogsData = _context3.sent;
+                        _context3.next = 6;
+                        return ParsedAd.find({ 'meta.parseDate': crawlLogsData[0].crawlDate }).count().exec();
 
-                        res.json({ success: true, crawlLogs: crawlLogsData });
-                        _context3.next = 10;
+                    case 6:
+                        parsedAdsNumber = _context3.sent;
+
+                        res.json({ success: true, crawlLogs: crawlLogsData, parsedAdsNumber: parsedAdsNumber });
+                        _context3.next = 13;
                         break;
 
-                    case 7:
-                        _context3.prev = 7;
+                    case 10:
+                        _context3.prev = 10;
                         _context3.t0 = _context3['catch'](0);
 
                         res.json({ success: false, error: _context3.t0 });
 
-                    case 10:
+                    case 13:
                     case 'end':
                         return _context3.stop();
                 }
             }
-        }, _callee3, this, [[0, 7]]);
+        }, _callee3, this, [[0, 10]]);
     }));
 
     return function (_x5, _x6) {
@@ -162,7 +167,7 @@ app.get('/entries', function () {
                     case 0:
                         _context4.prev = 0;
                         _context4.next = 3;
-                        return ParsedAd.find().sort({ $natural: -1 }).limit(100);
+                        return ParsedAd.find().sort({ $natural: -1 }).limit(50);
 
                     case 3:
                         parsedAdsData = _context4.sent;

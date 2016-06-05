@@ -1,16 +1,12 @@
 
 export default {
     templateUrl: 'client/parse-results-viewer/parse-result-viewer.html',
-    controller: function($http) {
+    controller: function(dataFetchService) {
         const ctrl = this;
 
-        $http({
-            method: 'GET',
-            url: '/entries'
-        }).then((response)=> {
-            ctrl.parsedAds = response.data.parsedAds;
-        }, (error)=> {
-            console.log('error', error);
+        dataFetchService.getUrl('/entries')
+        .then((responseData)=> {
+            ctrl.parsedAds = responseData.parsedAds;
         })
     }
 }

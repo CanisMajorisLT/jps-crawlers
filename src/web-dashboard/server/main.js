@@ -40,8 +40,9 @@ app.post('/options', async function(req, res) {
 app.get('/info', async function(req, res) {
 
     try {
-        const crawlLogsData = await CrawlLog.find().sort('-crawlDate').limit(100).exec();
-        res.json({success: true, crawlLogs: crawlLogsData});
+        const crawlLogsData = await CrawlLog.find().sort('-crawlDate').limit(50).exec();
+        const parsedAdsNumber = await ParsedAd.find({'meta.parseDate': crawlLogsData[0].crawlDate}).count().exec();
+        res.json({success: true, crawlLogs: crawlLogsData, parsedAdsNumber: parsedAdsNumber});
     } catch (e) {
         res.json({success: false, error: e});
 
@@ -56,7 +57,7 @@ app.get('/info', async function(req, res) {
 
 app.get('/entries', async function(req, res) {
     try {
-        const parsedAdsData = await ParsedAd.find().sort({$natural: -1}).limit(100);
+        const parsedAdsData = await ParsedAd.find().sort({$natural: -1}).limit(50);
         res.json({success: true, parsedAds: parsedAdsData});
     } catch (e) {
         res.json({success: false, error: e});

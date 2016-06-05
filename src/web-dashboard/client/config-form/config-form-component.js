@@ -1,29 +1,21 @@
-
-
 export default {
-        templateUrl: 'client/config-form/config-form.html',
-        controller: function($http) {
+    templateUrl: 'client/config-form/config-form.html',
+    controller: function($http, dataFetchService) {
 
-            this.handleSave = ()=> {
-                console.log('saving ');
-                console.log(this.data);
-                $http.post('/options', JSON.stringify(this.data)).then((response)=> {
-                    // koks nors servisas
-                    console.log('Saved successfully', response);
-                }, (error)=> {
-                    console.error('Failed to save', error);
-                    // koks nors servisas
-                })
-
-            };
-
-            $http({
-                method: 'GET',
-                url: '/options'
-            }).then((response)=> {
-                this.data = response.data;
+        this.handleSave = ()=> {
+            console.log('saving ');
+            console.log(this.data);
+            $http.post('/options', JSON.stringify(this.data)).then((response)=> {
+                console.log('Saved successfully', response);
             }, (error)=> {
-                console.log('error', error);
+                console.error('Failed to save', error);
+            })
+
+        };
+
+        dataFetchService.getUrl('/options')
+            .then((responseData)=> {
+                this.data = responseData;
             });
-        }
     }
+}

@@ -5,6 +5,9 @@ import errorViewer from './error-viewer/error-viewer-component'
 import singleErrorViewer from './error-viewer/single-error-viewer-component'
 import parseResultViewer from './parse-results-viewer/parse-result-viewer-component'
 import singleParseResultViewer from './parse-results-viewer/single-parse-result-viewer-component'
+import dataFetchService from './data-fetch-service'
+
+// TODO refactor: wrapping component for group (multi transclude head, body), http fetch services
 
 angular.module('app', ['templates'])
         .component('configForm', configComponent)
@@ -12,4 +15,5 @@ angular.module('app', ['templates'])
         .component('errorViewer', errorViewer)
         .component('singleErrorViewer', singleErrorViewer)
         .component('parseResultViewer', parseResultViewer)
-        .component('singleParseResultViewer', singleParseResultViewer);
+        .component('singleParseResultViewer', singleParseResultViewer)
+        .service('dataFetchService', dataFetchService);
