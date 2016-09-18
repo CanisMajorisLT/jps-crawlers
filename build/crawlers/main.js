@@ -8,10 +8,10 @@ exports.crawl = undefined;
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var crawl = exports.crawl = function () {
-    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(_ref) {
-        var taskSuccessHandler = _ref.taskSuccessHandler;
-        var onDone = _ref.onDone;
-        var config = _ref.config;
+    var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(_ref2) {
+        var taskSuccessHandler = _ref2.taskSuccessHandler;
+        var onDone = _ref2.onDone;
+        var config = _ref2.config;
 
         var _onDoneWrapper, _onDoneWrapper2, onDoneWrapCVB, resolveOnDoneCVB, _onDoneWrapper3, _onDoneWrapper4, onDoneWrapCVO, resolveOnDoneCVO;
 
@@ -48,7 +48,7 @@ var crawl = exports.crawl = function () {
     }));
 
     return function crawl(_x) {
-        return ref.apply(this, arguments);
+        return _ref.apply(this, arguments);
     };
 }();
 

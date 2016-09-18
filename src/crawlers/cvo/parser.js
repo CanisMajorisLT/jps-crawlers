@@ -10,8 +10,7 @@ import { validateParse, isNotEmptyString, isNumber, isDate, isNotEmptyArray,
  * @private
  */
 function extractTotalPageCount_(html) {
-    return 3;
-    var page = $.load(html);
+    const page = $.load(html);
 
     const lastPageWithAdsUri = page('#pagination').children().last().attr('href');
 

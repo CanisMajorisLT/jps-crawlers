@@ -11,7 +11,7 @@ function readFileToAsync(dir) {
     })
 }
 
-describe("Cvb parser", () => {
+describe("Cvo parser", () => {
 
     let fullPageHtml;
     let fullVeryLastPageHtml;

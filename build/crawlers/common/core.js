@@ -5,16 +5,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getNumberOfFrontPages = undefined;
 
-
 /**
  * Parses given uri with provided parser to get number of pages to parse
  * @param {string} uri
  * @param {function} parser
  * @returns {Number}
  */
-
 var getNumberOfFrontPages = exports.getNumberOfFrontPages = function () {
-    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(uri, parser) {
+    var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(uri, parser) {
         var html;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
@@ -43,7 +41,7 @@ var getNumberOfFrontPages = exports.getNumberOfFrontPages = function () {
     }));
 
     return function getNumberOfFrontPages(_x3, _x4) {
-        return ref.apply(this, arguments);
+        return _ref.apply(this, arguments);
     };
 }();
 
@@ -133,7 +131,7 @@ function generateFrontInfoTasks(n) {
 }function parseFrontPageArticlesFactory(uri, parser) {
 
     return function () {
-        var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(task) {
+        var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(task) {
             var fullUri, html;
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
                 while (1) {
@@ -156,7 +154,7 @@ function generateFrontInfoTasks(n) {
         }));
 
         function parseFrontPage(_x5) {
-            return ref.apply(this, arguments);
+            return _ref2.apply(this, arguments);
         }
 
         return parseFrontPage;
@@ -164,9 +162,9 @@ function generateFrontInfoTasks(n) {
 }
 
 function handleTaskSuccessFactory(site, callback) {
-    return function handleTaskSuccess(_ref) {
-        var result = _ref.result;
-        var task = _ref.task;
+    return function handleTaskSuccess(_ref3) {
+        var result = _ref3.result;
+        var task = _ref3.task;
 
         _logger2.default.info(site + ' Successfully finished parsing front page nr ' + task.pageNumber);
 
@@ -178,9 +176,9 @@ function handleTaskSuccessFactory(site, callback) {
 function handleTaskFailureFactory(site) {
     var queue = void 0;
 
-    function handleTaskFailure(_ref2) {
-        var error = _ref2.error;
-        var task = _ref2.task;
+    function handleTaskFailure(_ref4) {
+        var error = _ref4.error;
+        var task = _ref4.task;
 
         _logger2.default.error(site + ' Task failed', { error: error, task: task });
         if (task.requeue && task.requeue > 0 && task.timesRequeued < task.requeue) {

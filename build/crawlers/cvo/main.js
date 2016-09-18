@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var parseCVO = function () {
-    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(taskSuccessHandler, config, onDone) {
+    var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(taskSuccessHandler, config, onDone) {
         var handleTaskFail, handleTaskSuccess, adsParser, worker, FrontInfoFetchingQueue, pages, tasks;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
@@ -43,7 +43,7 @@ var parseCVO = function () {
     }));
 
     return function parseCVO(_x, _x2, _x3) {
-        return ref.apply(this, arguments);
+        return _ref.apply(this, arguments);
     };
 }();
 

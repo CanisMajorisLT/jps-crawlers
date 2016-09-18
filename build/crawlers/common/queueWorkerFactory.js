@@ -40,7 +40,7 @@ function asyncRetry(fnc, times) {
 function queueWorkerFactory(taskConsumer, taskFailureCallback, taskSuccessCallback) {
 
     return function () {
-        var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(task, callback) {
+        var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(task, callback) {
             var result;
             return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
@@ -113,7 +113,7 @@ function queueWorkerFactory(taskConsumer, taskFailureCallback, taskSuccessCallba
         }));
 
         function worker(_x2, _x3) {
-            return ref.apply(this, arguments);
+            return _ref.apply(this, arguments);
         }
 
         return worker;

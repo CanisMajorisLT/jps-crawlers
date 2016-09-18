@@ -46,7 +46,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/options', function () {
-    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(req, res) {
+    var _ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee(req, res) {
         var config;
         return regeneratorRuntime.wrap(function _callee$(_context) {
             while (1) {
@@ -69,12 +69,12 @@ app.get('/options', function () {
     }));
 
     return function (_x, _x2) {
-        return ref.apply(this, arguments);
+        return _ref.apply(this, arguments);
     };
 }());
 
 app.post('/options', function () {
-    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(req, res) {
+    var _ref2 = _asyncToGenerator(regeneratorRuntime.mark(function _callee2(req, res) {
         var newConfig;
         return regeneratorRuntime.wrap(function _callee2$(_context2) {
             while (1) {
@@ -106,12 +106,12 @@ app.post('/options', function () {
     }));
 
     return function (_x3, _x4) {
-        return ref.apply(this, arguments);
+        return _ref2.apply(this, arguments);
     };
 }());
 
 app.get('/info', function () {
-    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(req, res) {
+    var _ref3 = _asyncToGenerator(regeneratorRuntime.mark(function _callee3(req, res) {
         var crawlLogsData, parsedAdsNumber;
         return regeneratorRuntime.wrap(function _callee3$(_context3) {
             while (1) {
@@ -148,18 +148,12 @@ app.get('/info', function () {
     }));
 
     return function (_x5, _x6) {
-        return ref.apply(this, arguments);
+        return _ref3.apply(this, arguments);
     };
 }());
 
-// error log,
-// when is next crawl
-// when was last crawl + short summary of how many parsed, errors
-// totals crawls
-// total ad records
-// # of ads parsed in last 10 crawls [each], some examples of last ads..
 app.get('/entries', function () {
-    var ref = _asyncToGenerator(regeneratorRuntime.mark(function _callee4(req, res) {
+    var _ref4 = _asyncToGenerator(regeneratorRuntime.mark(function _callee4(req, res) {
         var parsedAdsData;
         return regeneratorRuntime.wrap(function _callee4$(_context4) {
             while (1) {
@@ -191,7 +185,7 @@ app.get('/entries', function () {
     }));
 
     return function (_x7, _x8) {
-        return ref.apply(this, arguments);
+        return _ref4.apply(this, arguments);
     };
 }());
 
