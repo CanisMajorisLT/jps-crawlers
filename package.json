@@ -42,15 +42,8 @@
     "start-server": "nodemon server.js",
     "test": "mocha --compilers js:babel-core/register --require babel-polyfill --recursive",
     "test:watch": "npm run test -- --watch",
-    "coverage": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha",
+    "coverage": "cross-env NODE_ENV=test nyc mocha",
     "build": "gulp build"
-  },
-  "nyc": {
-    "require": [
-      "babel-register"
-    ],
-    "sourceMap": false,
-    "instrument": false
   },
   "author": "Vytenis",
   "private": true,
