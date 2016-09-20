@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import fs from 'fs'
-import * as parser from '../../src/crawlers/cvb/parser';
+import * as parser from '../../../src/crawlers/cvb/parser';
 
 describe("Cvb parser", () => {
 

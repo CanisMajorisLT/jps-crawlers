@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import fs from 'fs'
-import * as parser from '../../src/crawlers/cvo/parser';
+import * as parser from '../../../src/crawlers/cvo/parser';
 
 function readFileToAsync(dir) {
     return new Promise((resolve, reject)=> {
