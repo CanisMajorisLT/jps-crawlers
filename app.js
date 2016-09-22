@@ -11,7 +11,7 @@ var ParsedAd = mongoose.model('ParsedAd');
 // use same date entry for all docs saved on this crawl
 var crawlDate;
 
-function saveToDb(result, site, task) { // TODO delete inactive ads
+function saveToDb(result, site, task) {
     ParsedAd.insertDocs(result, site, crawlDate);
 }
 

@@ -1,0 +1,1 @@
+{"version":3,"sources":["crawlers/lib/pageIterator.js"],"names":["iterator"],"mappings":";;AACA,SAASA,QAAT,GAAoB;AAChB;AACA;AACH","file":"crawlers/lib/pageIterator.js","sourcesContent":["\nfunction iterator() {\n    // parse some URL to extract COUNT\n    // knw how to iterate through pages with the given COUNT\n}"],"sourceRoot":"/source/"}

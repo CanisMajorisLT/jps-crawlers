@@ -1,7 +1,8 @@
 import mongoose from 'mongoose'
-import { isArray } from 'lodash'
 import logger from '../../../logging/logger'
 
+// TODO [refactor] use nodejs native mongo db driver, to insert dynamically created docs
+// construct API to dynamically create doc models
 
 const MODEL_NAME = 'ParsedAd';
 
@@ -50,11 +51,6 @@ ParsedAdSchema.statics.insertDocs = function insertDocs(data, source, date) {
         error && logger.error('Error  while creating new ParsedAd', {error});
     })
 };
-
-ParsedAdSchema.statics.insertMany = function(data, source, date){
-
-};
-
 
 
 mongoose.model(MODEL_NAME, ParsedAdSchema);

@@ -1,8 +1,8 @@
 import { default as async_ } from 'async'
 import { extractTotalPageCount, extractFrontInfo } from './parser'
-import { queueWorkerFactory } from '../common/queueWorkerFactory'
+import { queueWorkerFactory } from '../lib/queueWorkerFactory'
 import { generateFrontInfoTasks, getNumberOfFrontPages,
-    parseFrontPageArticlesFactory, handleTaskSuccessFactory, handleTaskFailureFactory } from '../common/core'
+    parseFrontPageArticlesFactory, handleTaskSuccessFactory, handleTaskFailureFactory } from '../lib/main'
 import logger from '../../../logging/logger'
 
 const FRONT_PAGE_URI = 'http://www.cvonline.lt/darbo-skelbimai/visi?page=${page}';

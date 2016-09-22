@@ -1,6 +1,6 @@
 import $ from 'cheerio'
 import { validateParse, isNotEmptyString, isNumber, isDate, isNotEmptyArray,
-         isNotElementNotFound, ELEMENT_NOT_FOUND} from '../common/validators'
+         isNotElementNotFound, ELEMENT_NOT_FOUND} from '../lib/validators'
 
 
 /**

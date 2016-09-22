@@ -11,9 +11,9 @@ var parseCVO = function () {
             while (1) {
                 switch (_context.prev = _context.next) {
                     case 0:
-                        handleTaskFail = (0, _core.handleTaskFailureFactory)('CVO');
-                        handleTaskSuccess = (0, _core.handleTaskSuccessFactory)('CVO', taskSuccessHandler);
-                        adsParser = (0, _core.parseFrontPageArticlesFactory)(FRONT_PAGE_URI, _parser.extractFrontInfo);
+                        handleTaskFail = (0, _main.handleTaskFailureFactory)('CVO');
+                        handleTaskSuccess = (0, _main.handleTaskSuccessFactory)('CVO', taskSuccessHandler);
+                        adsParser = (0, _main.parseFrontPageArticlesFactory)(FRONT_PAGE_URI, _parser.extractFrontInfo);
                         worker = (0, _queueWorkerFactory.queueWorkerFactory)(adsParser, handleTaskFail.handler, handleTaskSuccess);
                         FrontInfoFetchingQueue = _async2.default.queue(worker, config.general.workers || DEFAULT_WORKERS_NUMBER);
 
@@ -22,14 +22,14 @@ var parseCVO = function () {
                         handleTaskFail.setQueue(FrontInfoFetchingQueue); // so task can be requeued on fail
 
                         _context.next = 9;
-                        return (0, _core.getNumberOfFrontPages)(FRONT_PAGE_URI.replace('${page}', '200'), _parser.extractTotalPageCount);
+                        return (0, _main.getNumberOfFrontPages)(FRONT_PAGE_URI.replace('${page}', '200'), _parser.extractTotalPageCount);
 
                     case 9:
                         pages = _context.sent;
 
                         _logger2.default.info('Page count: ' + pages);
 
-                        tasks = (0, _core.generateFrontInfoTasks)(pages, 1, config.task);
+                        tasks = (0, _main.generateFrontInfoTasks)(pages, 1, config.task);
 
 
                         FrontInfoFetchingQueue.push(tasks);
@@ -53,9 +53,9 @@ var _async2 = _interopRequireDefault(_async);
 
 var _parser = require('./parser');
 
-var _queueWorkerFactory = require('../common/queueWorkerFactory');
+var _queueWorkerFactory = require('../lib/queueWorkerFactory');
 
-var _core = require('../common/core');
+var _main = require('../lib/main');
 
 var _logger = require('../../../logging/logger');
 

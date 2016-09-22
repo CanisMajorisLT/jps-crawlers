@@ -1,5 +1,5 @@
 import $ from 'cheerio'
-import { validateParse, isNotEmptyString, isNumber, isNotEmptyArray } from '../common/validators'
+import { validateParse, isNotEmptyString, isNumber, isNotEmptyArray } from '../lib/validators'
 
 
 /**

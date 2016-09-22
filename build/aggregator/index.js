@@ -1,3 +1,4 @@
+"use strict";
 
 /*
 
@@ -5,7 +6,6 @@ FIXME: can't move forward because it's unclear on how database model should be p
 FIXME: and new one created. Considering that this is supposed to be dynamic.
 FIXME: required to move forward
 */
-
 
 // given mongodb model
 // parses all of its records
@@ -17,6 +17,5 @@ FIXME: required to move forward
 // also extracts fields for indexing and searching [look up lunr.js, Elasticlunr.js]
 
 
-function retrieveRecords(MongooseModel) {
-
-}
+function retrieveRecords(MongooseModel) {}
+//# sourceMappingURL=index.js.map
