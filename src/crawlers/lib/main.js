@@ -1,7 +1,5 @@
 import { getPageBody } from './scrape'
-import { default as async_ } from 'async'
 import { datePlusHours } from './utils'
-import { queueWorkerFactory } from './queueWorkerFactory'
 import logger from '../../../logging/logger'
 
 const DEFAULT_TASK_DELAY = 1000;

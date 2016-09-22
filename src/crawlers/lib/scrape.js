@@ -33,7 +33,7 @@ export function getPageBody(uri, retries){ //TODO test
 
     return promiseR
 
-};
+}
 
 function getPage(uri) {
     var options = {
