@@ -76,7 +76,7 @@ export async function getNumberOfFrontPages(uri, parser) {
 export function parseFrontPageArticlesFactory(uri, parser) {
 
     return async function parseFrontPage(task) {
-        const fullUri = uri.replace('${page}', task.pageNumber);
+        const fullUri = uri.replace('${page}', task.pageNumber); // TODO use await as well so i can be fnc that does anything need to get page
         const html = await getPageBody(fullUri);
 
         return parser(html, task);

@@ -3,6 +3,13 @@
  */
 
 
+/**
+ * Connects different crawler parts into one sequencial flow.
+ * Each part much push itself into FlowControl, where part must be a curried function:
+ * base => next => data => {// inside logic; next(data)} (like Redux middleware).
+ * Each part can require that another part goes after it, this must be provided with static createPart method.
+ * Even if part has no requirements it still must pass itself through createPart.
+ */
 export default class FlowControl {
     constructor(core) {
         this.core = core;
