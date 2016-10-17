@@ -1,25 +1,23 @@
 import requestPromise from 'request-promise'
+import { asyncRetry } from './utils' // TODO use it for getPageBody
 import { makeFetchError } from './errors'
 
-export function getPageBody(uri, retries){ //TODO test
-    var triesLimit = retries || 5;
-    var currentTry = 0;
+export function getPageBody(uri, retries = 5){ //TODO test
+    let currentTry = 0;
 
-    var resolveR;
-    var rejectR;
-    var promiseR = new Promise(function(res,rej){
+    let resolveR;
+    let rejectR;
+    const promiseR = new Promise(function(res,rej){
         resolveR = res;
-        rejectR = rej
+        rejectR = rej;
     });
 
     function recursiveGet(){
         getPage(uri)
-            .then(function(body){
-                resolveR(body)
-            })
+            .then((body)=> resolveR(body))
             .catch(function(error){
                 currentTry++;
-                if (currentTry < triesLimit) {
+                if (currentTry < retries) {
                     setTimeout(recursiveGet, currentTry  * 100)
                 }
                  else {
@@ -31,17 +29,17 @@ export function getPageBody(uri, retries){ //TODO test
     recursiveGet();
 
 
-    return promiseR
+    return promiseR;
 
 }
 
 function getPage(uri) {
-    var options = {
+    const options = {
         simple: true, // reject if statusCode !== 2xx
         uri: uri
     };
 
-    return requestPromise(options)
+    return requestPromise(options);
 
 }
 

@@ -41,6 +41,13 @@ export default class FlowControl {
         this.__parts.push(part);
     }
 
+
+
+    start() {
+        const joinedParts = FlowControl.__joinParts(this.__parts, this.core);
+        joinedParts(null);
+    }
+
     __checkPartValidity(part) {
         const partsCount = this.__parts.length;
 
@@ -54,10 +61,4 @@ export default class FlowControl {
             throw Error(`Wrong sequence! Part ${part.partType} should be ${previousPart.nextPart}`)
         }
     }
-
-    start() {
-        const joinedParts = FlowControl.__joinParts(this.__parts, this.core);
-        joinedParts(null);
-    }
-
 }

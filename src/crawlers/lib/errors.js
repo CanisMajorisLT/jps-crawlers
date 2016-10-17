@@ -1,6 +1,6 @@
 
 export const PARSER_ERROR = 'ParserError';
-export const FETCH_ERROR = 'ParserError';
+export const FETCH_ERROR = 'FetchError';
 
 function CustomError(name, metaData) {
     this.name = name;

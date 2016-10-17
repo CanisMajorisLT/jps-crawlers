@@ -22,7 +22,8 @@ export async function getNumberOfPages(uri, parser) {
 }
 
 /**
- * Takes basic options for getting count of pages to parse and returns generator that yields pages to parse
+ * Takes basic options for getting count of pages to parse and returns generator that yields functions, which return promises
+ * that resolve to html to parse
  * @param {string} pageCountUrl
  * @param {function} parser
  * @param {number} startIndex
@@ -31,10 +32,17 @@ export async function getNumberOfPages(uri, parser) {
  */
 export async function getNumOfPagesGen({pageCountUrl, parser, startIndex, iterateUrl}) {
     const pagesCount = await getNumberOfPages(pageCountUrl, parser);
-    function* pagesGenerator() { // need a method to iterate this gen, which coudl go thourgh iteven if it returned promises
+
+    function getHtmlFactory(uri) {
+        return async function getHtml() {
+            return await getPageBody(uri);
+        }
+    }
+
+    function* pagesGenerator() {
         for (let i = startIndex || 0; i <= pagesCount; i++) {
 
-            yield createFlowObject({uri: iterateUrl.replace('${page}', i)});
+            yield createFlowObject({getHtml: getHtmlFactory(iterateUrl.replace('${page}', i))});
         }
     }
 
@@ -53,8 +61,6 @@ export async function getNumOfPagesGen({pageCountUrl, parser, startIndex, iterat
     }
  */
 export function iterator(objOrFnc) {
-    // TODO TEST TEST TEST and especially what happens with errors, when generetor is async (takes time form yield to yield)
-    // TODO how to pass previous data, should it come from pagesGen and be attached to next task?
     if (isPlainObject(objOrFnc)) {
         
         return core => next => data => next(getTaskCreator(()=> getNumOfPagesGen(objOrFnc), core.options)); // returns a task creator, which
