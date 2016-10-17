@@ -2,7 +2,7 @@ import { expect } from 'chai'
 import FlowControl from '../../src/crawlers/lib/api/flowControl'
 
 
-describe.only('AdsCrawler', () =>{
+describe('AdsCrawler', () =>{
 
     describe('flowControl', () =>{
 
