@@ -20,13 +20,22 @@ export function handleTaskFailureFactory(callback) {
     // TODO prefix logging by crawler name
     function handleTaskFailure({error, task}) {
         //logger.error(`Task failed`, {error, task});
-        if (task.requeue && task.requeue > 0 && (task.timesRequeued < task.requeue)) {
-            ++task.timesRequeued;
+
+        const config = task.local.crawlDetails.config;
+
+        if (config.requeue && config.requeue > 0 && (config.timesRequeued < config.requeue)) {
+            ++config.timesRequeued;
 
             queue.push(task)
         } else {
             //logger.debug('Task failed too many times, all requeues exausted');
-            callback && callback({error, task});
+            if (!task.global.crawlErrors) {
+                task.global.crawlErrors = [];
+            }
+
+            task.global.crawlErrors.push(error);
+
+            callback && callback(task);
         }
     }
 

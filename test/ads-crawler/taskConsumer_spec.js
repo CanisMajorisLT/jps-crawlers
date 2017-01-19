@@ -6,7 +6,7 @@ import { applyParserToTaskHtmlFactory, handleTaskFailureFactory } from '../../sr
 
 chai.use(spies);
 
-describe.only('taskConsumer', () =>{
+describe('taskConsumer', () =>{
     describe('applyParserToTaskHtmlFactory', () =>{
         it('takes a parser fnc and returns fnc, which is supplied as task consumer to the worker', () =>{
             const consumer = applyParserToTaskHtmlFactory(() => {});

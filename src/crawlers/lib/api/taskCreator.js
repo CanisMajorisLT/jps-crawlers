@@ -25,8 +25,9 @@ const defaultConfig = {
                 retryInterval: config.DEFAULT_TASK_RETRY_INTERVAL, // optional
                 delay: config.DEFAULT_TASK_DELAY, //optional
             },
-            pageUri, // TODO maybe this should be a function that returns a url. promise(url)
-            isLastPage
+            getHtml, // Fnc -> Promise
+            isLastPage, // optional
+            ... // any optional values
         },
     },
     global: {
